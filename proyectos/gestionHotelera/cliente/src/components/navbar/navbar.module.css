@@ -1,0 +1,70 @@
+.navbar {
+    height: clamp(56px, 8vh, 72px);
+    width: 100%;
+    background-color: #252525;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+
+    flex-shrink: 0;
+}
+
+.logo a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.link:hover {
+    color: white;
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.buttonLink {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: rgb(29, 29, 29);
+    border-radius: 8px;
+    background-color: #d1d1d1;
+}
+
+.buttonLink:hover {
+    color: rgb(6, 65, 21);
+    transition: .5s;
+}
+
+.buttonPrimary {
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    background-color: #14AE5C;
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.buttonPrimary:hover {
+    transition: .5s;
+    background-color: #fdfdfd;
+    color: rgb(6, 65, 21);
+}

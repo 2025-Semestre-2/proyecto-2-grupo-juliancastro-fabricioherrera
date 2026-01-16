@@ -1,0 +1,59 @@
+.banner{
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+    background-image: url("../../assets/bannerPic.jpg");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.shadow{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.726);
+    justify-content: center;
+    align-items:  center;
+}
+
+.title{
+    font-size: 3.2em;
+    font-family: cursive;
+}
+
+.title span{
+    font-size: 1.4em;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.textContainer{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.textContainer h2 {
+    font-weight: 400;
+}
+
+.btnContainer{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.linkBtn {
+    background-color: #14AE5C;
+    color: white;
+    border-radius: 8px;
+    padding: .8rem;
+    width: 45%;
+    display: inline-block;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.linkBtn:hover {
+    transform: scale(1.05);
+    color:  white;
+}

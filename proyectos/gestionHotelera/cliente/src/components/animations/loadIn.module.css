@@ -10,15 +10,15 @@
 }
 
 .fadeUp {
-  animation: fadeUp 0.6s ease-out forwards;
+  animation: fadeUp 0.25s ease-out forwards;
 }
 
 .delay1 {
-  animation-duration: 0.9s;
+  animation-duration: 0.50s;
 }
 .delay2 {
-  animation-duration: 0.12s;
+  animation-duration: 0.75s;
 }
 .delay3 {
-  animation-duration: 0.14s;
+  animation-duration: 1s;
 }

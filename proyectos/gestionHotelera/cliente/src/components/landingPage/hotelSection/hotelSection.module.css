@@ -1,0 +1,53 @@
+.hotelSection{
+    height:  90vh;
+    width: 100%;
+    background-color: #F5FEF8;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.hotelSection h2 {
+    color: black;
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.hotelSection h3{
+    line-height: normal;
+    margin-top: 0;
+    color: rgb(90, 90, 90);
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.cardGrid{
+    height: 10%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 1rem;
+}
+
+.btnContainer{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.linkBtn {
+    background-color:  var(--primaryLight);
+    color: white;
+    border-radius: 8px;
+    padding: .8rem;
+    width: 45%;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./navbar.module.css";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../../contexts/AuthContext";
 import { NavLink, Link } from "react-router-dom";
 
 function Navbar() {
@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <header className={styles.navbar}>
       <div className={styles.logo}>
-        <Link to="/">Logo</Link>
+        <Link to="/"></Link>
       </div>
 
       <nav className={styles.links}>

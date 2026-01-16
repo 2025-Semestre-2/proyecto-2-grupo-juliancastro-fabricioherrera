@@ -1,0 +1,41 @@
+.card {
+  border: 2px solid;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.iconWrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(20, 174, 92, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon{
+  height: 80%;
+  width: 80%;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.text {
+  font-size: 0.95rem;
+  color: #5f6b63;
+  margin: 0;
+  line-height: 1.4;
+}

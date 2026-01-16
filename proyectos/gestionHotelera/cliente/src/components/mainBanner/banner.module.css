@@ -44,7 +44,7 @@
 }
 
 .linkBtn {
-    background-color: #14AE5C;
+    background-color:  var(--primaryLight);
     color: white;
     border-radius: 8px;
     padding: .8rem;

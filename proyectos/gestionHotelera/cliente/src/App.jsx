@@ -1,29 +1,21 @@
-import bannerPic from './assets/bannerPic.jpg'
-import Navbar from './components/landingPage/navbar/Navbar'
-import './App.css'
-import Banner from './components/landingPage/mainBanner/Banner'
-import HotelSection from './components/landingPage/hotelSection/HotelSection'
-import ActivitySection from './components/landingPage/activitySection/ActivitySection'
-import Footer from './components/landingPage/footer/Footer'
+import { Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
+
+import Home from "./pages/landing/Home";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
-    <>
-      <div
-        className="fixed-bg"
-        style={{
-          backgroundImage: `url(${bannerPic})`
-        }}
-      />
-      <div className="app-content">
-        <Navbar />
-        <Banner />
-        <HotelSection />
-        <ActivitySection />
-        <Footer />
-      </div>
-    </>
-  )
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+      </Route>
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<Login />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;

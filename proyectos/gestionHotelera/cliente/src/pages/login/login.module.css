@@ -1,0 +1,55 @@
+.page{
+    background-image: url('../../assets/loginPic.jpg');
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glassContainer{
+    background: rgb(26, 26, 26);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    height: 85%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.glassContainer hr{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.glassContainer h2{
+    margin: 0;
+}
+
+.glassContainer p{
+    margin: 0;
+    color: rgb(134, 134, 134);
+}
+
+.formContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo{
+    height: 9rem;
+    width: 20rem;
+    background-image: url("../../assets/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

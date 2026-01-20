@@ -58,9 +58,6 @@ function Login() {
             helperText={emailError ? "Formato de email inválido" : " "}
             sx={{
                 input: { color: "#fff" },
-                 "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#fff",
-                },
                 "& .MuiInputLabel-root": {
                   color: "rgba(255,255,255,0.8)",
                 },

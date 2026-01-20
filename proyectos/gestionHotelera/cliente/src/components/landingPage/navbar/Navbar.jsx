@@ -31,7 +31,7 @@ function Navbar() {
             <NavLink to="/login" className={styles.buttonLink}>
               Iniciar Sesión
             </NavLink>
-            <NavLink to="/register" className={styles.buttonPrimary}>
+            <NavLink to="/register/user" className={styles.buttonPrimary}>
               Registrarse
             </NavLink>
           </>

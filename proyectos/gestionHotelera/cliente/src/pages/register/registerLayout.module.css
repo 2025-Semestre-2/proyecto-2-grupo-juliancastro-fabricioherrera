@@ -1,0 +1,57 @@
+.registerContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerBox{
+    background: rgb(26, 26, 26);
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: .6fr .4fr;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(58, 58, 58, 0.322); 
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    padding: 1rem;
+
+}
+
+.pictureWrapper{
+    background-image: url("../../assets/registerPic.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.tabContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerTabs{
+    display: flex;
+    gap: 1rem;
+}
+
+.registerTabs a:hover {
+  background-color: rgba(34, 197, 94, 0.15);
+  border-color: #22c55e;
+}
+
+.registerTabs a.active {
+  background-color: #22c55e;
+  color: #0f172a;
+  border-color: #22c55e;
+  font-weight: 600;
+}

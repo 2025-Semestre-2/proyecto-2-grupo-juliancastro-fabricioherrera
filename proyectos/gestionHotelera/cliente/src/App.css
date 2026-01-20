@@ -1,0 +1,14 @@
+.fixed-bg {
+  position: fixed;
+  inset: 0; 
+  z-index: -1;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.app-content {
+  position: relative;
+  z-index: 1;
+}

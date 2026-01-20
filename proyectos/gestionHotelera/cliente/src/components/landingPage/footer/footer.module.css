@@ -1,0 +1,55 @@
+.footer{
+    background: linear-gradient(to bottom, #111111, #000000);
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:  3rem;
+}
+
+.footer hr{
+    width: 95%;
+    border-color: rgba(255, 255, 255, 0.308);
+}
+
+.links {
+    justify-self: center;
+    align-items: center;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: white;
+}
+
+.socialMedia{
+    display: flex;
+    gap: 1rem;
+}
+.mediaIcon{
+    background-position: center center;
+    cursor: pointer;
+    background-size: cover;
+    height: 3rem;
+    width: 3rem;
+}
+
+.instagram{background-image: url(../../../assets/instagram.png);}
+.facebook{background-image: url(../../../assets/facebook.png);}
+.tiktok{background-image: url(../../../assets/tiktok.png);}
+
+.footer p {
+    color: rgb(146, 146, 146)
+}
+
+.footer p span{
+    color: var(--primaryLight);
+}

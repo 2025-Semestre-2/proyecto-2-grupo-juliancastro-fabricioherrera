@@ -7,13 +7,12 @@ export default function MainLayout() {
   return (
     <>
       <div className="fixed-bg" style={{ backgroundImage: `url(${bannerPic})` }}/>
-
       <div className="app-content">
         <Navbar />
         <Outlet />
         <Footer />
       </div>
-
+      
       <style>{`
         .fixed-bg {
           position: fixed;

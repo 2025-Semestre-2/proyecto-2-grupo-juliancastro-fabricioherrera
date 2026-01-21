@@ -4,6 +4,7 @@ import styles from "./registerLayout.module.css"
 import { useNavigate } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
+
 export default function RegisterLayout() {
     const navigate = useNavigate();
     const tabButtonSx = {
@@ -33,30 +34,33 @@ export default function RegisterLayout() {
 
   return (
     <div className={styles.registerContainer}>
-
         <div className={styles.registerBox}>
-
             <div className={styles.formContainer}>
-                <Button
-                    type="button"
-                    variant="text"
-                    startIcon={<ArrowBackIosNewIcon />}
-                    onClick={() => navigate(-1)}
-                    sx={{
-                        color: "#22c55e",
-                        textTransform: "none",
-                        alignSelf: 'flex-start'
-                    }}
+                <div className={styles.headerSection}>
+                    <Button
+                        type="button"
+                        variant="text"
+                        startIcon={<ArrowBackIosNewIcon />}
+                        onClick={() => navigate(-1)}
+                        sx={{
+                            color: "#22c55e",
+                            textTransform: "none",
+                            alignSelf: 'flex-start'
+                        }}
                     ></Button>
-                <div className={styles.tabContainer}>
-                    <h2>Registro</h2>
-                    <div className={styles.registerTabs}>
-                        <Button component={NavLink} to="user" sx={tabButtonSx} replace>Usuario</Button>
-                        <Button component={NavLink} to="admin" sx={tabButtonSx} replace>Hospedaje</Button>
-                        <Button component={NavLink} to="business" sx={tabButtonSx} replace>Empresa Recreativa</Button>
+                    <div className={styles.tabContainer}>
+                        <h2>Registro</h2>
+                        <div className={styles.registerTabs}>
+                            <Button component={NavLink} to="user" sx={tabButtonSx} replace>Usuario</Button>
+                            <Button component={NavLink} to="admin" sx={tabButtonSx} replace>Hospedaje</Button>
+                            <Button component={NavLink} to="business" sx={tabButtonSx} replace>Empresa Recreativa</Button>
+                        </div>
                     </div>
                 </div>
-                <Outlet />
+                
+                <div className={styles.formContent}>
+                    <Outlet />
+                </div>
             </div>
 
             <div className={styles.pictureWrapper}></div>

@@ -3,6 +3,7 @@ import { TextField, Button } from "@mui/material";
 import styles from "./login.module.css";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import {greenInputSx} from "../../components/themePresets/input"
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -56,31 +57,7 @@ function Login() {
             onChange={handleEmailChange}
             error={emailError}
             helperText={emailError ? "Formato de email inválido" : " "}
-            sx={{
-                input: { color: "#fff" },
-                "& .MuiInputLabel-root": {
-                  color: "rgba(255,255,255,0.8)",
-                },
-                "& .MuiInputLabel-root.Mui-focused": {
-                  color: "#fff",
-                },
-                  "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "rgba(255,255,255,0.6)",
-                },
-                "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#22c55e",
-                },
-                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#22c55e",
-                  borderWidth: 2,
-                },
-                "& .MuiFormHelperText-root": {
-                  color: "#22c55e",
-                },
-                "& .MuiFormHelperText-root.Mui-error": {
-                  color: "#9b581a",
-                },
-              }}
+            sx={greenInputSx}
             />
           <TextField
             label="Contraseña"
@@ -90,25 +67,7 @@ function Login() {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            sx={{
-                input: { color: "#fff" },
-                "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#22c55e",
-                },
-                "& .MuiInputLabel-root": {
-                  color: "rgba(255,255,255,0.8)",
-                },
-                "& .MuiInputLabel-root.Mui-focused": {
-                  color: "#fff",
-                },
-                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#22c55e",
-                  borderWidth: 2,
-                },
-                  "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "rgba(255,255,255,0.6)",
-                },
-              }}
+            sx={greenInputSx}
           />
           <Button
             type="submit"

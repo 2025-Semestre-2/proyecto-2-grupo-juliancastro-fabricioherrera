@@ -4,7 +4,9 @@ export const greenInputSx = {
   "& .MuiInputLabel-root": {
     color: "rgba(255,255,255,0.8)",
   },
-
+  "& .MuiInputBase-input": {
+      color: "#ffffff",
+    },
   "& .MuiInputLabel-root.Mui-focused": {
     color: "#fff",
   },

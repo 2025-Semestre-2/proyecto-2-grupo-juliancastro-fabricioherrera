@@ -18,7 +18,7 @@ import {greenInputSx} from "../../components/themePresets/input"
 const countries = ["Africa", "Peru", "Costa Rica"]
 
 function UserRegister() {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
   name: "",
   firstLastName: "",
   secLastName: "",

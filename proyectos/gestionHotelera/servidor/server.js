@@ -19,7 +19,7 @@ process.on('uncaughtException', (error) => {
 
 const startServer = async () => {
   try {
-
+    await connectDatabase();
     const server = app.listen(config.server.port, () => {
       console.log(`Server running on port ${config.server.port} in ${config.server.nodeEnv} mode`);
       console.log(`Health check: http://localhost:${config.server.port}/api/health`);

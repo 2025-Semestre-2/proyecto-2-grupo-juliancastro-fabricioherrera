@@ -11,29 +11,81 @@ import {
   Radio,
   Autocomplete
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {greenRadioGroupSx} from  "../../components/themePresets/radio"
 import {greenInputSx} from "../../components/themePresets/input"
 
-const countries = ["Africa", "Peru", "Costa Rica"]
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+
+
 
 function UserRegister() {
-const [formData, setFormData] = useState({
-  name: "",
-  firstLastName: "",
-  secLastName: "",
-  birthdate: "",
-  country: "",
-  province: "",
-  city: "",
-  district: "",
-  idNumber: "",
-  phone1: "",
-  phone2: "",
-  email: "",
-  password: "",
-  confirmPassword: ""
-});
+  const [locationData, setLocationData] = useState({
+    countries: [],
+    provinces: []
+  });
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    firstLastName: "",
+    secLastName: "",
+    birthdate: "",
+    country: null,
+    province: null,
+    city: null,
+    district: null,
+    idType: "id",
+    idNumber: "",
+    phone1: "",
+    phone2: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+
+    const validateId = (type, value) => {
+    if (!value) return "";
+    switch (type) {
+      case "id":
+        return /^\d{9}$/.test(value)
+          ? ""
+          : "La cédula debe tener 9 dígitos numéricos";
+      case "dimex":
+        return /^\d{11,12}$/.test(value)
+          ? ""
+          : "El DIMEX debe tener 11 o 12 dígitos";
+      case "passport":
+        return /^[a-zA-Z0-9]{6,9}$/.test(value)
+          ? ""
+          : "El pasaporte debe ser alfanumérico (6–9 caracteres)";
+      default:
+        return "";
+    }
+  };
+  const idError = validateId(formData.idType, formData.idNumber);
+    const fetchCountries = async () => {
+    try {
+      const response = await fetch(`${API_URL}/locations/countries`);
+      const data = await response.json();
+      if (data.success) {
+        setLocationData({countries: data.data.pais, provinces: data.data.provincia});
+      }
+    } catch (error) {
+      console.error('Error fetching countries:', error);
+    }
+  };
+
+  const selectedProvince = locationData.provinces.find(
+    p => p.nombre === formData.province
+  );
+  const selectedCanton = selectedProvince?.canton.find(
+    c => c.nombre === formData.city
+  );
+
   const handleChange = (e) => {
   const { name, value } = e.target;
   setFormData((prev) => ({
@@ -47,16 +99,19 @@ const [formData, setFormData] = useState({
     country: newValue || "",
   }));
 };
-  const handleProvinceChange = (event, newValue) => {
-  setFormData((prev) => ({
+const handleProvinceChange = (event, newValue) => {
+  setFormData(prev => ({
     ...prev,
-    province: newValue || "",
+    province: newValue,
+    city: null,
+    district: null
   }));
 };
-  const handleCityChange = (event, newValue) => {
-  setFormData((prev) => ({
+const handleCityChange = (event, newValue) => {
+  setFormData(prev => ({
     ...prev,
-    city: newValue || "",
+    city: newValue,
+    district: null
   }));
 };
   const handleDistrictChange = (event, newValue) => {
@@ -117,7 +172,7 @@ const [formData, setFormData] = useState({
                     />
           <Autocomplete
                   required
-                  options={countries}
+                  options={locationData.countries}
                   style={{gridRow: 3, gridColumn: '4/span 3'}}
                   name="country"
                   value={formData.country}
@@ -136,6 +191,8 @@ const [formData, setFormData] = useState({
             <RadioGroup
               row
               name="idType"
+              value={formData.idType}
+              onChange={handleChange}
               defaultValue="id"
             >
               <FormControlLabel value="id" control={<Radio />} label="Cédula" />
@@ -144,22 +201,25 @@ const [formData, setFormData] = useState({
             </RadioGroup>
           </FormControl>
           <TextField
-                    label="Identificación"
-                    name="idNumber"
-                    variant="outlined"
-                    fullWidth
-                    required
-                    value={formData.idNumber}
-                    onChange={handleChange}
-                    sx={greenInputSx}
-                    style={{gridRow: 5, gridColumn: '4/span 3'}}
-                    />
+            label="Identificación"
+            name="idNumber"
+            variant="outlined"
+            fullWidth
+            required
+            value={formData.idNumber}
+            onChange={handleChange}
+            error={Boolean(idError)}
+            helperText={idError}
+            sx={greenInputSx}
+            style={{ gridRow: 5, gridColumn: '4/span 3' }}
+          />
+
           {/*Location*/}
-          {formData.country === "Costa Rica" && ( <>
+          {formData.country === "COSTA RICA" && ( <>
           <div style={{gridRow: 6, gridColumn: '1/span 6'}}><Typography variant="h6">Dirección en Costa Rica</Typography><hr/></div>
               <Autocomplete
                   required
-                  options={countries}
+                  options={locationData.provinces.map(p => p.nombre)}
                   style={{gridRow: 7, gridColumn: '1/span 2'}}
                   name="province"
                   value={formData.province}
@@ -174,7 +234,7 @@ const [formData, setFormData] = useState({
             />
             <Autocomplete
                   required
-                  options={countries}
+                  options={selectedProvince ? selectedProvince.canton.map(c => c.nombre) : []}
                   style={{gridRow: 7, gridColumn: '3/span 2'}}
                   name="city"
                   value={formData.city}
@@ -189,7 +249,7 @@ const [formData, setFormData] = useState({
             />
             <Autocomplete
                   required
-                  options={countries}
+                  options={selectedCanton ? selectedCanton.distrito : []}
                   style={{gridRow: 7, gridColumn: '5/span 2'}}
                   name="district"
                   value={formData.district}
@@ -220,7 +280,6 @@ const [formData, setFormData] = useState({
                     name="phone2"
                     variant="outlined"
                     fullWidth
-                    required
                     value={formData.phone2}
                     onChange={handleChange}
                     sx={greenInputSx}

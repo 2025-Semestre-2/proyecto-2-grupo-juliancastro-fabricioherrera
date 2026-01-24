@@ -7,12 +7,14 @@ import HotelRegister from "./pages/register/HotelRegister";
 import ActivityRegister from "./pages/register/ActivityRegister"
 import Home from "./pages/landing/Home";
 import Login from "./pages/login/Login";
+import MainHotelPage from "./pages/hotels/MainHotelPage";
 
 function App() {
   return (
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/hoteles" element={<MainHotelPage />} />
       </Route>
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />

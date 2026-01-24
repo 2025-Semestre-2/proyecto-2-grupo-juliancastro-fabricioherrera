@@ -3,6 +3,7 @@ node_modules/
 
 # Variables de Entorno
 .env
+.env.example
 
 # Salidas
 dist/
@@ -28,3 +29,4 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+proyectos/gestionHotelera/servidor/.env.example

@@ -91,6 +91,7 @@ function Login() {
             variant="contained"
             size="large"
             fullWidth
+            onClick={() => navigate('/register/user')}
             sx={{
             backgroundColor: "#33534e",
             "&:hover": {
@@ -98,35 +99,7 @@ function Login() {
             },
           }}
           >
-            Registrarse como usuario
-          </Button>
-          <Button
-            type="button"
-            variant="contained"
-            size="large"
-            fullWidth
-            sx={{
-            backgroundColor: "#33534e",
-            "&:hover": {
-              backgroundColor: "#16a34a",
-            },
-          }}
-          >
-            Registrar hospedaje
-          </Button>
-          <Button
-            type="button"
-            variant="contained"
-            size="large"
-            fullWidth
-            sx={{
-            backgroundColor: "#33534e",
-            "&:hover": {
-              backgroundColor: "#16a34a",
-            },
-          }}
-          >
-            Registrar empresa recreativa
+            Registrarse
           </Button>
       </div>
     </div>

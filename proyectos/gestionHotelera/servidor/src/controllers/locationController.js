@@ -39,7 +39,6 @@ function transformLocations(countries) {
         }))
     }));
     result.provincia = result.provincia.filter(p => p.nombre !== undefined);
-    console.log(result);
   return result;
 }
 

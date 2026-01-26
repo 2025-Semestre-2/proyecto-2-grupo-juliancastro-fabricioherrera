@@ -15,6 +15,7 @@ import {
 import { useState, useEffect } from "react";
 import {greenRadioGroupSx} from  "../../components/themePresets/radio"
 import {greenInputSx} from "../../components/themePresets/input"
+import { useNavigate } from "react-router-dom";
 import {
   validateId,
   validateEmail,
@@ -31,7 +32,7 @@ function UserRegister() {
     countries: [],
     provinces: []
   });
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({ show: false, type: '', message: '' });
 
@@ -134,7 +135,6 @@ function UserRegister() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validaciones del formulario
     const errors = {
       name: !formData.name ? "El nombre es requerido" : "",
       firstLastName: !formData.firstLastName ? "El primer apellido es requerido" : "",
@@ -163,7 +163,6 @@ function UserRegister() {
       return;
     }
 
-    // Enviar datos al backend
     setLoading(true);
     try {
       const response = await fetch(`${API_URL}/users/register`, {
@@ -193,7 +192,6 @@ function UserRegister() {
       if (response.ok && data.success) {
         showAlert('success', '¡Registro exitoso! Redirigiendo...');
         
-        // Limpiar el formulario
         setFormData({
           name: "",
           firstLastName: "",
@@ -212,11 +210,8 @@ function UserRegister() {
           confirmPassword: ""
         });
 
-        // Opcional: Redirigir al login después de 2 segundos
         setTimeout(() => {
-          // window.location.href = '/login';
-          // O usando React Router:
-          // navigate('/login');
+          navigate('/login');
         }, 2000);
       } else {
         showAlert('error', data.message || 'Error al registrar el usuario');

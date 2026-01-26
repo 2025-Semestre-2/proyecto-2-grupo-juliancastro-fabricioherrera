@@ -15,10 +15,13 @@ const registerDAO = {
         .update(userData.password)
         .digest();
       console.log('Contraseña encriptada correctamente');
+      
       const pool = await sql.connect();
       console.log('Conexión al pool establecida');
+      
       const request = pool.request();
       console.log('Configurando parámetros del SP...');
+      
       request.input('correo', sql.VarChar(30), userData.email);
       request.input('contrasenia', sql.VarBinary(256), hashedPassword);
       request.input('identificacion', sql.VarChar(12), userData.idNumber);
@@ -32,34 +35,18 @@ const registerDAO = {
       request.input('distrito', sql.VarChar(20), userData.district || null);
       request.input('telefono1', sql.VarChar(8), userData.phone1);
       request.input('telefono2', sql.VarChar(8), userData.phone2 || null);
-      console.log('Parámetros configurados:', {
-        correo: userData.email,
-        identificacion: userData.idNumber,
-        nombre: userData.name,
-        primerApellido: userData.firstLastName,
-        segundoApellido: userData.secLastName || null,
-        fechaNacimiento: userData.birthdate,
-        pais: userData.country,
-        provincia: userData.province || null,
-        canton: userData.city || null,
-        distrito: userData.district || null,
-        telefono1: userData.phone1,
-        telefono2: userData.phone2 || null
-      });
 
-      // Ejecutar el stored procedure
-      console.log('🚀 Ejecutando stored procedure: sp_RegistrarClienteConCuenta');
+      console.log('Ejecutando stored procedure: sp_RegistrarClienteConCuenta');
       const result = await request.execute('sp_RegistrarClienteConCuenta');
       
-      console.log('✅ SP ejecutado exitosamente');
-      console.log('📊 Resultado del SP:', result);
+      console.log('SP ejecutado exitosamente');
 
       if (!result.recordset || result.recordset.length === 0) {
         throw new Error('El stored procedure no retornó ningún resultado');
       }
 
       const cuentaID = result.recordset[0].cuentaID;
-      console.log(`✅ Usuario registrado con cuentaID: ${cuentaID}`);
+      console.log(`Usuario registrado con cuentaID: ${cuentaID}`);
 
       return {
         success: true,
@@ -69,19 +56,8 @@ const registerDAO = {
         }
       };
     } catch (error) {
-      console.error('❌ Error detallado en registerDAO.registerUser:');
-      console.error('Error completo:', error);
-      console.error('Error name:', error.name);
-      console.error('Error message:', error.message);
-      console.error('Error number:', error.number);
-      console.error('Error code:', error.code);
-      console.error('Error state:', error.state);
-      console.error('Error class:', error.class);
-      console.error('Error lineNumber:', error.lineNumber);
-      console.error('Error serverName:', error.serverName);
-      console.error('Error procName:', error.procName);
+      console.error('Error detallado en registerDAO.registerUser:', error);
       
-      // Manejar errores específicos del stored procedure
       if (error.number === 50001) {
         throw new Error('Rol no válido');
       } else if (error.number === 50002) {
@@ -89,7 +65,6 @@ const registerDAO = {
       } else if (error.number === 50003) {
         throw new Error('Distrito, Cantón o Provincia no válidos');
       } else if (error.number === 2627 || error.number === 2601) {
-        // Violación de clave única
         if (error.message.includes('correo') || error.message.includes('Cuenta')) {
           throw new Error('El correo electrónico ya está registrado');
         } else if (error.message.includes('identificacion') || error.message.includes('Cliente')) {
@@ -97,28 +72,130 @@ const registerDAO = {
         }
         throw new Error('El correo electrónico o identificación ya están registrados');
       } else if (error.code === 'ELOGIN') {
-        throw new Error('Error de autenticación con la base de datos. Verifica las credenciales.');
+        throw new Error('Error de autenticación con la base de datos');
       } else if (error.code === 'ETIMEOUT') {
         throw new Error('Tiempo de espera agotado al conectar con la base de datos');
       } else if (error.code === 'EREQUEST') {
         throw new Error(`Error en la petición SQL: ${error.message}`);
       } else if (error.code === 'ECONNREFUSED') {
-        throw new Error('No se pudo conectar a la base de datos. Verifica que SQL Server esté corriendo.');
+        throw new Error('No se pudo conectar a la base de datos');
       } else {
-        // Error genérico con más detalles
         throw new Error(`Error al registrar el usuario: ${error.message || 'Error desconocido'}`);
       }
     }
   },
 
-  /**
-   * Verifica si un correo ya está registrado
-   * @param {string} email - Correo a verificar
-   * @returns {Promise<boolean>} True si existe, false si no
-   */
+  async registerHotel(hotelData) {
+    try {
+      console.log('Iniciando registro de hospedaje:', {
+        name: hotelData.name,
+        idNumber: hotelData.idNumber,
+        email: hotelData.email,
+        adminMail: hotelData.adminMail
+      });
+
+      const hashedPassword = crypto
+        .createHash('sha256')
+        .update(hotelData.password)
+        .digest();
+      console.log('Contraseña encriptada correctamente');
+
+      const socialMediaJSON = hotelData.socialMedia 
+        ? JSON.stringify(hotelData.socialMedia) 
+        : null;
+
+      const servicesJSON = hotelData.services 
+        ? JSON.stringify(hotelData.services) 
+        : null;
+
+      console.log('Datos preparados:', {
+        socialMedia: socialMediaJSON,
+        services: servicesJSON
+      });
+
+      const pool = await sql.connect();
+      console.log('Conexión al pool establecida');
+
+      const request = pool.request();
+      console.log('Configurando parámetros del SP para hospedaje...');
+
+      request.input('nombre', sql.VarChar(50), hotelData.name);
+      request.input('cedulaJuridica', sql.VarChar(10), hotelData.idNumber);
+      request.input('tipoHospedaje', sql.VarChar(20), hotelData.type);
+      request.input('correo', sql.VarChar(30), hotelData.email);
+      request.input('webURL', sql.VarChar(150), hotelData.webURL || null);
+      request.input('provincia', sql.VarChar(50), hotelData.province || null);
+      request.input('canton', sql.VarChar(50), hotelData.city || null);
+      request.input('distrito', sql.VarChar(50), hotelData.district || null);
+      request.input('barrio', sql.VarChar(50), hotelData.town || null);
+      request.input('referencias', sql.VarChar(sql.MAX), hotelData.references);
+      request.input('mapsLink', sql.VarChar(150), hotelData.mapsLink || null);
+      request.input('telefono1', sql.VarChar(8), hotelData.phone1);
+      request.input('telefono2', sql.VarChar(8), hotelData.phone2 || null);
+      request.input('correoAdmin', sql.VarChar(30), hotelData.adminMail);
+      request.input('contrasenia', sql.VarBinary(sql.MAX), hashedPassword);
+      request.input('redesSociales', sql.NVarChar(sql.MAX), socialMediaJSON);
+      request.input('servicios', sql.NVarChar(sql.MAX), servicesJSON);
+
+      console.log('Parámetros configurados. Ejecutando SP...');
+      const result = await request.execute('sp_RegistrarHospedaje');
+      
+      console.log('SP ejecutado exitosamente');
+      console.log('Resultado del SP:', result);
+
+      if (!result.recordset || result.recordset.length === 0) {
+        throw new Error('El stored procedure no retornó ningún resultado');
+      }
+
+      const responseData = result.recordset[0];
+      console.log(`Hospedaje registrado con cuentaID: ${responseData.cuentaID}`);
+
+      return {
+        success: true,
+        data: {
+          cuentaID: responseData.cuentaID,
+          cedulaJuridica: responseData.cedulaJuridica,
+          message: responseData.mensaje || 'Hospedaje registrado exitosamente'
+        }
+      };
+    } catch (error) {
+      console.error('Error detallado en registerDAO.registerHotel:', error);
+      console.error('Error completo:', {
+        name: error.name,
+        message: error.message,
+        number: error.number,
+        code: error.code,
+        state: error.state
+      });
+
+      if (error.number === 50003) {
+        throw new Error('Distrito, Cantón o Provincia no válidos');
+      } else if (error.number === 50004) {
+        throw new Error('Tipo de hospedaje no válido');
+      } else if (error.number === 2627 || error.number === 2601) {
+        if (error.message.includes('correo') || error.message.includes('Cuenta')) {
+          throw new Error('El correo electrónico ya está registrado');
+        } else if (error.message.includes('cedulaJuridica') || error.message.includes('Hospedaje')) {
+          throw new Error('La cédula jurídica ya está registrada');
+        }
+        throw new Error('El correo electrónico o cédula jurídica ya están registrados');
+      } else if (error.code === 'ELOGIN') {
+        throw new Error('Error de autenticación con la base de datos');
+      } else if (error.code === 'ETIMEOUT') {
+        throw new Error('Tiempo de espera agotado al conectar con la base de datos');
+      } else if (error.code === 'EREQUEST') {
+        throw new Error(`Error en la petición SQL: ${error.message}`);
+      } else if (error.code === 'ECONNREFUSED') {
+        throw new Error('No se pudo conectar a la base de datos');
+      } else {
+        throw new Error(`Error al registrar el hospedaje: ${error.message || 'Error desconocido'}`);
+      }
+    }
+  },
+
   async emailExists(email) {
     try {
-      console.log(`🔍 Verificando disponibilidad del email: ${email}`);
+      console.log(`Verificando disponibilidad del email: ${email}`);
       
       const pool = await sql.connect();
       const result = await pool.request()
@@ -126,23 +203,18 @@ const registerDAO = {
         .query('SELECT COUNT(*) as count FROM Cuenta WHERE correo = @correo');
       
       const exists = result.recordset[0].count > 0;
-      console.log(`📧 Email ${email} existe: ${exists}`);
+      console.log(`Email ${email} existe: ${exists}`);
       
       return exists;
     } catch (error) {
-      console.error('❌ Error en registerDAO.emailExists:', error);
+      console.error('Error en registerDAO.emailExists:', error);
       throw new Error(`Error al verificar el correo: ${error.message}`);
     }
   },
 
-  /**
-   * Verifica si una identificación ya está registrada
-   * @param {string} identification - Identificación a verificar
-   * @returns {Promise<boolean>} True si existe, false si no
-   */
   async identificationExists(identification) {
     try {
-      console.log(`🔍 Verificando disponibilidad de la identificación: ${identification}`);
+      console.log(`Verificando disponibilidad de la identificación: ${identification}`);
       
       const pool = await sql.connect();
       const result = await pool.request()
@@ -150,12 +222,51 @@ const registerDAO = {
         .query('SELECT COUNT(*) as count FROM Cliente WHERE identificacion = @identificacion');
       
       const exists = result.recordset[0].count > 0;
-      console.log(`🆔 Identificación ${identification} existe: ${exists}`);
+      console.log(`Identificación ${identification} existe: ${exists}`);
       
       return exists;
     } catch (error) {
-      console.error('❌ Error en registerDAO.identificationExists:', error);
+      console.error('Error en registerDAO.identificationExists:', error);
       throw new Error(`Error al verificar la identificación: ${error.message}`);
+    }
+  },
+
+  async hotelEmailExists(email) {
+    try {
+      console.log(`Verificando disponibilidad del email de hospedaje: ${email}`);
+      
+      const pool = await sql.connect();
+      const result = await pool.request()
+        .input('correo', sql.VarChar(30), email)
+        .query('SELECT COUNT(*) as count FROM Hospedaje WHERE correo = @correo');
+      
+      const exists = result.recordset[0].count > 0;
+      console.log(`Email de hospedaje ${email} existe: ${exists}`);
+      
+      return exists;
+    } catch (error) {
+      console.error('Error en registerDAO.hotelEmailExists:', error);
+      throw new Error(`Error al verificar el correo del hospedaje: ${error.message}`);
+    }
+  },
+
+
+  async cedulaJuridicaExists(cedulaJuridica) {
+    try {
+      console.log(`Verificando disponibilidad de la cédula jurídica: ${cedulaJuridica}`);
+      
+      const pool = await sql.connect();
+      const result = await pool.request()
+        .input('cedulaJuridica', sql.VarChar(10), cedulaJuridica)
+        .query('SELECT COUNT(*) as count FROM Hospedaje WHERE cedulaJuridica = @cedulaJuridica');
+      
+      const exists = result.recordset[0].count > 0;
+      console.log(`Cédula jurídica ${cedulaJuridica} existe: ${exists}`);
+      
+      return exists;
+    } catch (error) {
+      console.error('Error en registerDAO.cedulaJuridicaExists:', error);
+      throw new Error(`Error al verificar la cédula jurídica: ${error.message}`);
     }
   }
 };

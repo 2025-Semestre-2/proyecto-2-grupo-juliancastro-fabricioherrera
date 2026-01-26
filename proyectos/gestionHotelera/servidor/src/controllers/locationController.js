@@ -49,9 +49,7 @@ const locationController = {
 
       const countries = await locationDAO.getLocations();
       const formatResult = transformLocations(countries);
-      console.log(formatResult);
       
-
       res.status(200).json({
         success: true,
         data: formatResult,

@@ -54,7 +54,7 @@ const loginDAO = {
 
         case 'HAdmin':
           console.log('Obteniendo datos de hoteles');
-          // userData = await this.getEmpleadoData(pool, email);
+          userData = await this.getHotelData(pool, email);
           break;
 
         case 'EAdmin':
@@ -146,6 +146,61 @@ const loginDAO = {
     } catch (error) {
       console.error('Error en loginDAO.emailExists:', error);
       throw new Error(`Error al verificar el correo: ${error.message}`);
+    }
+  },
+  async getHotelData(pool, email) {
+    try {
+      console.log(`Obteniendo datos del hospedaje con email: ${email}`);
+      
+      const result = await pool.request()
+        .input('correo', sql.VarChar(30), email)
+        .query(`
+          SELECT 
+            nombre,
+            provincia,
+            tipo,
+            distrito,
+            cedulaJuridica,
+            nombreHospedaje,
+            correo,
+            webURL,
+            barrio,
+            referencias,
+            telefono1,
+            telefono2,
+            pais,
+            codigoTelefonico
+          FROM vw_hospedajes
+          WHERE correo = @correo
+        `);
+
+      if (result.recordset.length === 0) {
+        throw new Error('No se encontraron datos del hospedaje');
+      }
+
+      const hospedaje = result.recordset[0];
+      console.log('Datos del hospedaje obtenidos exitosamente');
+
+      return {
+        rol: 'HAdmin',
+        correo: hospedaje.correo,
+        cedulaJuridica: hospedaje.cedulaJuridica,
+        nombreHospedaje: hospedaje.nombreHospedaje,
+        nombre: hospedaje.nombre,
+        tipo: hospedaje.tipo,
+        pais: hospedaje.pais,
+        provincia: hospedaje.provincia,
+        distrito: hospedaje.distrito,
+        barrio: hospedaje.barrio,
+        referencias: hospedaje.referencias,
+        codigoTelefonico: hospedaje.codigoTelefonico,
+        telefono1: hospedaje.telefono1,
+        telefono2: hospedaje.telefono2,
+        webURL: hospedaje.webURL
+      };
+    } catch (error) {
+      console.error('Error al obtener datos del hospedaje:', error);
+      throw error;
     }
   }
 };

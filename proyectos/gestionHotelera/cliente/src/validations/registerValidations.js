@@ -89,3 +89,11 @@ export const validatePasswordStrength = (password) => {
   }
   return "";
 };
+
+export const validateURL = (url) => {
+  if (!url) return "";
+  const urlRegex = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/;
+  return urlRegex.test(url)
+    ? ""
+    : "Debe ser una URL válida (ej: https://ejemplo.com)";
+};

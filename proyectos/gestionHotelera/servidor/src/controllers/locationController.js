@@ -39,7 +39,6 @@ function transformLocations(countries) {
         }))
     }));
     result.provincia = result.provincia.filter(p => p.nombre !== undefined);
-    console.log(result);
   return result;
 }
 
@@ -50,9 +49,7 @@ const locationController = {
 
       const countries = await locationDAO.getLocations();
       const formatResult = transformLocations(countries);
-      console.log(formatResult);
       
-
       res.status(200).json({
         success: true,
         data: formatResult,

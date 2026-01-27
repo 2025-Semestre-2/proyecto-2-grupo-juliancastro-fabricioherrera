@@ -8,6 +8,7 @@ import ActivityRegister from "./pages/register/ActivityRegister"
 import Home from "./pages/landing/Home";
 import Login from "./pages/login/Login";
 import MainHotelPage from "./pages/hotels/MainHotelPage";
+import HotelDetail from "./pages/hotels/HotelDetail";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/hoteles" element={<MainHotelPage />} />
+        <Route path="/hotel/:idHotel" element={<HotelDetail />} />
       </Route>
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />

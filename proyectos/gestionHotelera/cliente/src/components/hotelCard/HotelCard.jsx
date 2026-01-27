@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './hotelCard.module.css';
 
 const HotelCard = ({ hotel }) => {
   const servicios = hotel.servicios ? hotel.servicios.split(', ') : [];
+  const hotelId = hotel.idHotel || hotel.cedulaJuridica || hotel.cedula || hotel.cedula_juridica;
 
   return (
     <div className={styles.card}>
@@ -27,10 +29,6 @@ const HotelCard = ({ hotel }) => {
           <p>{hotel.canton}, {hotel.provincia}</p>
         </div>
         
-        <p className={styles.description}>
-          Hotel ubicado en el corazón de {hotel.canton} con vistas espectaculares
-        </p>
-        
         <div className={styles.servicios}>
           {servicios.slice(0, 4).map((servicio, index) => (
             <span key={index} className={styles.servicioBadge}>
@@ -39,7 +37,13 @@ const HotelCard = ({ hotel }) => {
           ))}
         </div>
         
-        <button className={styles.button}>Ver Detalles</button>
+        {hotelId ? (
+          <Link to={`/hotel/${hotelId}`} className={styles.link}>
+            <button className={styles.button}>Ver Detalles</button>
+          </Link>
+        ) : (
+          <button className={styles.button} disabled>Ver Detalles</button>
+        )}
       </div>
     </div>
   );

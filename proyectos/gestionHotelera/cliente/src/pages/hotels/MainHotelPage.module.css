@@ -30,6 +30,22 @@
   margin: 0 auto;
 }
 
+.loading {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--primaryLight);
+  font-weight: 600;
+  padding: 40px 20px;
+}
+
+.error {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #e74c3c;
+  font-weight: 600;
+  padding: 40px 20px;
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;

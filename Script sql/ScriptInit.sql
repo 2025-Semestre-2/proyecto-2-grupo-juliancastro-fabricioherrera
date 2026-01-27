@@ -842,7 +842,155 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (475, 81, 'DUACARÍ');
 
 SET IDENTITY_INSERT Distrito OFF;
 
+INSERT INTO RedSocial(nombre, iconUrl)
+VALUES 
+('Instagram', '/instagram.png'),
+('Facebook', '/facebook.png'),
+('AirBnB',  '/airbnb.png'),
+('Tik-Tok', '/tiktok.png'),
+('X', '/x.png'),
+('YouTube', '/youtube.png')
 
+INSERT INTO Servicio (nombre) VALUES
+-- Alojamiento
+('Alojamiento'),
+('Hospedaje'),
+('Estancia'),
+('Uso de habitación'),
+('Habitación estándar'),
+('Habitación superior'),
+('Habitación privada'),
+('Habitación compartida'),
+('Cama adicional'),
+('Configuración especial de habitación'),
+
+-- Limpieza y mantenimiento
+('Limpieza de habitación'),
+('Mantenimiento general'),
+('Cambio de ropa de cama'),
+('Servicio de aseo'),
+('Reposición de insumos'),
+
+-- Áreas comunes e instalaciones
+('Acceso a áreas comunes'),
+('Uso de instalaciones'),
+('Acceso a zonas recreativas'),
+('Uso de áreas compartidas'),
+('Acceso a espacios privados'),
+('Área de descanso'),
+
+-- Bienestar y relajación
+('Área de piscina'),
+('Área acuática'),
+('Área de relajación'),
+('Zona de descanso'),
+('Zona de bienestar'),
+
+-- Actividad física
+('Área de ejercicio'),
+('Zona fitness'),
+('Espacio de actividad física'),
+
+-- Servicios operativos del hospedaje
+('Recepción'),
+('Atención al huésped'),
+('Gestión de estadía'),
+('Asistencia general'),
+('Soporte al cliente'),
+
+-- Servicios de alimentación
+('Servicio de alimentación'),
+('Servicio de comidas'),
+('Servicio de bebidas'),
+('Área de comedor'),
+
+-- Comodidades generales
+('Parqueo'),
+('Conectividad'),
+('Acceso a internet'),
+('Acceso a servicios básicos'),
+
+-- Servicios complementarios
+('Servicio adicional'),
+('Servicio complementario'),
+('Servicio estándar'),
+('Servicio extendido'),
+('Servicio premium');
+
+INSERT INTO TipoHospedaje (nombre) VALUES
+('Hotel'),
+('Motel'),
+('Hostal'),
+('Hospedaje turístico'),
+('Alojamiento rural'),
+('Casa de huéspedes'),
+('Casa compartida'),
+('Casa privada'),
+('Apartamento'),
+('Apartamento amueblado'),
+('Condominio'),
+('Residencia turística'),
+('Cabaña'),
+('Bungalow'),
+('Villa'),
+('Lodge'),
+('Posada'),
+('Pensión'),
+('Refugio'),
+('Centro de hospedaje'),
+('Complejo turístico'),
+('Alojamiento temporal'),
+('Alojamiento permanente'),
+('Alojamiento económico'),
+('Alojamiento estándar'),
+('Alojamiento premium'),
+('Alojamiento familiar'),
+('Alojamiento compartido'),
+('Alojamiento independiente');
+
+INSERT INTO [dbo].[TipoActividad] ([nombre]) VALUES
+('Tour en kayak'),
+('Paseo en catamarán'),
+('Caminata guiada'),
+('Senderismo'),
+('Montura a caballo'),
+('Tour en bicicleta'),
+('Excursión ecológica'),
+('Tour de observación de aves'),
+('Tour panorámico'),
+('Recorrido cultural'),
+('Recorrido histórico'),
+('Tour gastronómico'),
+('Clase recreativa'),
+('Actividad acuática'),
+('Paseo en bote'),
+('Tour al atardecer'),
+('Tour al amanecer'),
+('Actividad de aventura'),
+('Actividad al aire libre'),
+('Tour naturalista'),
+('Experiencia guiada'),
+('Recorrido escénico'),
+('Tour fotográfico'),
+('Actividad recreativa'),
+('Actividad familiar'),
+('Actividad grupal'),
+('Actividad individual'),
+('Experiencia cultural'),
+('Experiencia natural'),
+('Experiencia turística'),
+('Tour de exploración'),
+('Tour guiado'),
+('Actividad deportiva'),
+('Actividad de relajación'),
+('Paseo recreativo'),
+('Tour terrestre'),
+('Tour acuático'),
+('Experiencia al aire libre'),
+('Recorrido rural'),
+('Actividad de integración'),
+('Tour ecológico'),
+('Experiencia de aventura');
 
 
 

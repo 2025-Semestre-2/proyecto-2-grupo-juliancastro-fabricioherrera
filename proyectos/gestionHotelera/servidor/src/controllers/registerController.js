@@ -165,6 +165,92 @@ const registerController = {
     }
   },
 
+  async registerActivity(req, res) {
+    try {
+      const activityData = req.body;
+      console.log('Datos recibidos para registro de empresa/actividad:', activityData);
+      
+      if (!activityData.name || !activityData.idNumber || !activityData.contactName ||
+          !activityData.email || !activityData.phone || !activityData.references ||
+          !activityData.description || !activityData.adminMail || !activityData.password) {
+        return res.status(400).json({
+          success: false,
+          message: 'Faltan campos obligatorios'
+        });
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(activityData.email)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Formato de correo electrónico de la empresa inválido'
+        });
+      }
+
+      if (!emailRegex.test(activityData.adminMail)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Formato de correo electrónico administrativo inválido'
+        });
+      }
+
+      if (activityData.password.length < 8) {
+        return res.status(400).json({
+          success: false,
+          message: 'La contraseña debe tener al menos 8 caracteres'
+        });
+      }
+
+      const cedulaRegex = /^3\d{9}$/;
+      if (!cedulaRegex.test(activityData.idNumber)) {
+        return res.status(400).json({
+          success: false,
+          message: 'La cédula jurídica debe empezar con 3 y tener 10 dígitos'
+        });
+      }
+
+      const activityEmailExists = await registerDAO.activityEmailExists(activityData.email);
+      if (activityEmailExists) {
+        return res.status(409).json({
+          success: false,
+          message: 'El correo electrónico de la empresa ya está registrado'
+        });
+      }
+
+      const adminEmailExists = await registerDAO.emailExists(activityData.adminMail);
+      if (adminEmailExists) {
+        return res.status(409).json({
+          success: false,
+          message: 'El correo electrónico administrativo ya está registrado'
+        });
+      }
+
+      const cedulaExists = await registerDAO.cedulaJuridicaExists(activityData.idNumber);
+      if (cedulaExists) {
+        return res.status(409).json({
+          success: false,
+          message: 'La cédula jurídica ya está registrada'
+        });
+      }
+
+      if (!activityData.province || !activityData.city || !activityData.district) {
+        return res.status(400).json({
+          success: false,
+          message: 'Debe proporcionar provincia, cantón y distrito'
+        });
+      }
+
+      const result = await registerDAO.registerActivity(activityData);
+      return res.status(201).json(result);
+    } catch (error) {
+      console.error('Error en registerController.registerActivity:', error);
+      return res.status(500).json({
+        success: false,
+        message: error.message || 'Error al registrar la empresa'
+      });
+    }
+  },
+
   async checkEmailAvailability(req, res) {
     try {
       const { email } = req.query;
@@ -229,6 +315,29 @@ const registerController = {
       });
     } catch (error) {
       console.error('Error en registerController.checkHotelEmailAvailability:', error);
+      return res.status(500).json({
+        success: false,
+        message: 'Error al verificar disponibilidad del correo'
+      });
+    }
+  },
+
+  async checkActivityEmailAvailability(req, res) {
+    try {
+      const { email } = req.query;
+      if (!email) {
+        return res.status(400).json({
+          success: false,
+          message: 'El correo es requerido'
+        });
+      }
+      const exists = await registerDAO.activityEmailExists(email);
+      return res.status(200).json({
+        success: true,
+        available: !exists
+      });
+    } catch (error) {
+      console.error('Error en registerController.checkActivityEmailAvailability:', error);
       return res.status(500).json({
         success: false,
         message: 'Error al verificar disponibilidad del correo'

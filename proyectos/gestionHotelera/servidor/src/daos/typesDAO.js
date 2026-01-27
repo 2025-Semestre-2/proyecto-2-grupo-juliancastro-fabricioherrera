@@ -11,6 +11,18 @@ const typesDAO = {
       console.error('Error en DAO getHotelTypes:', error);
       throw new Error('Error al obtener los tipos de hospedaje de la base de datos');
     }
+  },
+
+  async getActivityTypes() {
+    try {
+      const result = await pool.request()
+        .query('SELECT nombre FROM vw_tipoActividad');
+      return result.recordset;
+      
+    } catch (error) {
+      console.error('Error en DAO getActivityTypes:', error);
+      throw new Error('Error al obtener los tipos de actividad de la base de datos');
+    }
   }
 };
 

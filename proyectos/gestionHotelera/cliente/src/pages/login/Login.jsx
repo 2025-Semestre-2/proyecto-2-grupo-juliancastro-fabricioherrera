@@ -58,7 +58,6 @@ function Login() {
 
       if (response.ok && data.success) {
         login(data.data.user);
-        localStorage.setItem('user', JSON.stringify(data.data.user));
         showAlert('success', `¡Bienvenido ${data.data.user.nombreCompleto || data.data.user.correo}!`);
 
         setTimeout(() => {

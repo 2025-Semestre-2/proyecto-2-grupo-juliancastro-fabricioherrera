@@ -1,0 +1,173 @@
+.container {
+    width: 100%;
+    height: 90vh;
+    background-color: #fefdf5;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleContainer {
+    width: 100%;
+    padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.tabsContainer {
+    width: 100%;
+    padding: 0 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.btnContainer {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: end;
+}
+
+.cardContainer {
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+
+.cardFrame {
+    background-color: rgb(240, 240, 240);
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.cardsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.dashboardGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.statCard {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        0 4px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.statCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.statCardHeader {
+    margin-bottom: 0.5rem;
+}
+
+.chartsArea {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        0 4px 16px rgba(0, 0, 0, 0.06);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chartPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Scrollbar personalizado */
+.cardFrame::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cardFrame::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.cardFrame::-webkit-scrollbar-thumb {
+    background: rgb(211, 167, 85);
+    border-radius: 4px;
+}
+
+.cardFrame::-webkit-scrollbar-thumb:hover {
+    background: rgb(191, 147, 65);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .cardContainer {
+        padding: 0.5rem;
+    }
+
+    .cardFrame {
+        padding: 1rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .chartsArea {
+        min-height: 300px;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titleContainer {
+        padding: 0.75rem 0.75rem 0.25rem 0.75rem;
+    }
+
+    .tabsContainer {
+        padding: 0 0.75rem;
+    }
+
+    .btnContainer {
+        padding: 0.75rem;
+    }
+}

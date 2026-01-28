@@ -4,6 +4,7 @@ import RoomDetailCard from "../../components/roomCard/RoomDetailCard";
 import { Button, Typography, Tabs, Tab } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HotelIcon from "@mui/icons-material/Hotel";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 function HotelAdminPanel() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -50,12 +51,10 @@ function HotelAdminPanel() {
 
   const handleEdit = (roomId) => {
     console.log("Editar habitación:", roomId);
-
   };
 
   const handleDelete = (roomId) => {
     console.log("Eliminar habitación:", roomId);
-
   };
 
   const handleAddRoom = () => {
@@ -96,12 +95,18 @@ function HotelAdminPanel() {
             label="Mis Habitaciones" 
           />
           <Tab 
+            icon={<BookmarkIcon />} 
+            iconPosition="start" 
+            label="Reservas Activas" 
+          />
+          <Tab 
             icon={<DashboardIcon />} 
             iconPosition="start" 
             label="Dashboard de Reportes" 
           />
         </Tabs>
       </div>
+
       <TabPanel value={currentTab} index={0}>
         <div className={styles.btnContainer}>
           <Button
@@ -165,6 +170,22 @@ function HotelAdminPanel() {
       <TabPanel value={currentTab} index={1}>
         <div className={styles.cardContainer}>
           <div className={styles.cardFrame}>
+            <div className={styles.emptyState}>
+              <BookmarkIcon sx={{ fontSize: 60, color: '#ccc', mb: 2 }} />
+              <Typography variant="h6" color="#999">
+                Reservas Activas
+              </Typography>
+              <Typography variant="body2" color="#bbb">
+                Aquí se mostrarán las cards de reservas activas
+              </Typography>
+            </div>
+          </div>
+        </div>
+      </TabPanel>
+
+      <TabPanel value={currentTab} index={2}>
+        <div className={styles.cardContainer}>
+          <div className={styles.cardFrame}>
             <div className={styles.dashboardGrid}>
               <div className={styles.statsGrid}>
                 <StatCard
@@ -192,6 +213,7 @@ function HotelAdminPanel() {
                   color="rgb(156, 39, 176)"
                 />
               </div>
+
               <div className={styles.chartsArea}>
                 <div className={styles.chartPlaceholder}>
                   <DashboardIcon sx={{ fontSize: 60, color: '#ccc', mb: 2 }} />

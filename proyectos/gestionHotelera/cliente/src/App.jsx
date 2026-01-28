@@ -11,6 +11,8 @@ import { RoleProtectedRoute } from "./components/protectedRoutes/ProtectedRoute"
 import UserReservations from "./pages/adminPanel/UserReservations";
 import HotelAdminPanel from "./pages/adminPanel/HotelAdminPanel";
 import ActivityAdminPanel from "./pages/adminPanel/ActivityAdminPanel";
+import MainHotelPage from "./pages/hotels/MainHotelPage";
+import HotelDetail from "./pages/hotels/HotelDetail";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
             </RoleProtectedRoute>
           }
         />
+        <Route path="/hoteles" element={<MainHotelPage />} />
+        <Route path="/hotel/:idHotel" element={<HotelDetail />} />
       </Route>
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />

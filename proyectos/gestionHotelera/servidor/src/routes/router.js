@@ -5,6 +5,7 @@ import registerRoutes from './registerRoutes.js';
 import loginRoutes from './loginRoute.js';
 import serviceRoutes from './serviceRoute.js';
 import typesRoutes from './typesRoutes.js'
+import hotelRoutes from './hotelRoutes.js'
 
 const router = express.Router();
 
@@ -14,5 +15,6 @@ router.use('/users', registerRoutes);
 router.use('/auth', loginRoutes);
 router.use('/services', serviceRoutes);
 router.use('/types', typesRoutes);
+router.use('/hotels', hotelRoutes);
 
 export default router;

@@ -1,0 +1,83 @@
+.container {
+  min-height: 80vh;
+  padding: 40px 20px;
+  background-color: #F5FEF8;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: slideDown 0.6s ease-out;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+.hotelGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--primaryLight);
+  font-weight: 600;
+  padding: 40px 20px;
+}
+
+.error {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #e74c3c;
+  font-weight: 600;
+  padding: 40px 20px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .hotelGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 10px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .hotelGrid {
+    grid-template-columns: 1fr;
+  }
+}

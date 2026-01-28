@@ -1,0 +1,205 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.backButton {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+.detailsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.imageSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mainImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.location p {
+  margin: 0;
+  color: var(--primaryLight);
+  font-weight: 500;
+}
+
+.description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hotelInfo {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.infoCard h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.infoCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoCard li {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.infoCard strong {
+  color: #2c3e50;
+}
+
+.serviciosSection {
+  margin-top: 20px;
+}
+
+.serviciosSection h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.serviciosList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.servicioBadge {
+  background-color: #10b981;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.reserveButton,
+.contactButton {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reserveButton {
+  background-color: #10b981;
+  color: white;
+}
+
+.reserveButton:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+.contactButton {
+  background-color: #f0f0f0;
+  color: #2c3e50;
+  border: 1px solid #ddd;
+}
+
+.contactButton:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.error {
+  color: #dc2626;
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .detailsWrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .mainImage {
+    height: 300px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+}

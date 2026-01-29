@@ -1,22 +1,24 @@
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
   padding: 40px 20px;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .backButton {
   background-color: #10b981;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 30px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  width: fit-content;
 }
 
 .backButton:hover {
@@ -27,11 +29,15 @@
 .detailsWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 50px;
   background: white;
-  padding: 40px;
+  padding: 60px;
   border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 1400px;
+  margin: 0 auto;
+  flex: 1;
+  width: 100%;
 }
 
 .imageSection {
@@ -54,17 +60,18 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #2c3e50;
-  margin: 0;
+  margin: 0 0 15px 0;
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .location {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1rem;
+  gap: 6px;
+  font-size: 0.85rem;
   color: #666;
 }
 
@@ -75,9 +82,13 @@
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+.description p {
   margin: 0;
 }
 
@@ -133,9 +144,9 @@
 .servicioBadge {
   background-color: #10b981;
   color: white;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 6px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
 }
 
@@ -154,7 +165,7 @@
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .reserveButton {
@@ -184,7 +195,81 @@
   margin: 20px 0;
 }
 
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.contactItem span {
+  font-size: 1.2rem;
+}
+
+.contactItem a {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contactItem a:hover {
+  text-decoration: underline;
+}
+
+.socialNetworks {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.socialNetworks h3 {
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #10b981;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  background-color: #10b981;
+  transform: translateY(-3px);
+}
+
 @media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+
   .detailsWrapper {
     grid-template-columns: 1fr;
     padding: 20px;

@@ -8,6 +8,33 @@ const HotelDetail = () => {
   const [hotel, setHotel] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [socialNetworks, setSocialNetworks] = useState({});
+
+  // Mapeo de íconos/colores para redes sociales
+  const socialIcons = {
+    'TikTok': '🎵',
+    'Instagram': '📷',
+    'Facebook': '👍',
+    'YouTube': '▶️',
+    'Airbnb': '🏠',
+    'X': '𝕏'
+  };
+
+  const parseSocialNetworks = (redesSocialesStr) => {
+    if (!redesSocialesStr) return {};
+    
+    const networks = {};
+    const parts = redesSocialesStr.split(' | ');
+    
+    parts.forEach(part => {
+      const [name, url] = part.split(': ');
+      if (name && url) {
+        networks[name.trim()] = url.trim();
+      }
+    });
+    
+    return networks;
+  };
 
   useEffect(() => {
     const fetchHotelDetails = async () => {
@@ -21,7 +48,13 @@ const HotelDetail = () => {
         
         const data = await response.json();
         console.log('Datos recibidos:', data);
-        setHotel(data.data || data);
+        const hotelData = data.data || data;
+        setHotel(hotelData);
+        
+        // Parsear redes sociales
+        if (hotelData.redesSociales) {
+          setSocialNetworks(parseSocialNetworks(hotelData.redesSociales));
+        }
       } catch (err) {
         setError(err.message);
         console.error('Error al cargar los detalles del hotel:', err);
@@ -54,12 +87,10 @@ const HotelDetail = () => {
     return <div className={styles.container}>Hotel no encontrado</div>;
   }
 
-  const servicios = hotel.servicios ? hotel.servicios.split(', ') : [];
-
   return (
     <div className={styles.container}>
       <button onClick={() => navigate('/hoteles')} className={styles.backButton}>
-        ← Volver
+        ← Volver a la lista
       </button>
 
       <div className={styles.detailsWrapper}>
@@ -75,42 +106,63 @@ const HotelDetail = () => {
           <h1 className={styles.title}>{hotel.nombreHotel}</h1>
           
           <div className={styles.location}>
-            <span></span>
-            <p>{hotel.distrito}, {hotel.canton}, {hotel.provincia}</p>
+            <span>📍</span>
+            <p>{hotel.canton}, {hotel.provincia}</p>
           </div>
 
-          <div className={styles.priceSection}>
-            <p className={styles.price}>€{hotel.precio}/noche</p>
-          </div>
 
-          <div className={styles.hotelInfo}>
-            <div className={styles.infoCard}>
-              <h3>Información General</h3>
-              <ul>
-                <li><strong>Nombre:</strong> {hotel.nombreHotel}</li>
-                <li><strong>País:</strong> {hotel.pais}</li>
-                <li><strong>Provincia:</strong> {hotel.provincia}</li>
-                <li><strong>Cantón:</strong> {hotel.canton}</li>
-                <li><strong>Distrito:</strong> {hotel.distrito}</li>
-                <li><strong>ID Hotel:</strong> {hotel.idHotel}</li>
-              </ul>
-            </div>
-          </div>
-
+          {/* Servicios disponibles */}
           <div className={styles.serviciosSection}>
-            <h3>Servicios Disponibles</h3>
+            <h3>Servicios del Hotel:</h3>
             <div className={styles.serviciosList}>
-              {servicios.length > 0 ? (
-                servicios.map((servicio, index) => (
-                  <span key={index} className={styles.servicioBadge}>
-                    {servicio.trim()}
-                  </span>
-                ))
-              ) : (
-                <p>No hay servicios disponibles</p>
-              )}
+              <span className={styles.servicioBadge}>Piscina</span>
+              <span className={styles.servicioBadge}>WiFi</span>
+              <span className={styles.servicioBadge}>Restaurante</span>
+              <span className={styles.servicioBadge}>Bar</span>
+              <span className={styles.servicioBadge}>Parqueo</span>
+              <span className={styles.servicioBadge}>Spa</span>
+              <span className={styles.servicioBadge}>Tours</span>
             </div>
           </div>
+
+          {/* Contacto */}
+          <div className={styles.contactInfo}>
+            <div className={styles.contactItem}>
+              <span>📞</span>
+              <a href={`tel:${hotel.telefono1}`}>{hotel.telefono1}</a>
+            </div>
+            
+            <div className={styles.contactItem}>
+              <span>✉️</span>
+              <a href="mailto:info@hotel.com">info@hotel.com</a>
+            </div>
+            
+            <div className={styles.contactItem}>
+              <span>🌐</span>
+              <a href="http://www.hotel.com" target="_blank" rel="noopener noreferrer">www.hotel.com</a>
+            </div>
+          </div>
+
+          {/* Redes Sociales */}
+          {Object.keys(socialNetworks).length > 0 && (
+            <div className={styles.socialNetworks}>
+              <h3>Síguenos:</h3>
+              <div className={styles.socialLinks}>
+                {Object.entries(socialNetworks).map(([network, url]) => (
+                  <a 
+                    key={network}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialLink}
+                    title={network}
+                  >
+                    {socialIcons[network] || '🔗'}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className={styles.actionButtons}>
             <button className={styles.reserveButton}>Reservar Ahora</button>

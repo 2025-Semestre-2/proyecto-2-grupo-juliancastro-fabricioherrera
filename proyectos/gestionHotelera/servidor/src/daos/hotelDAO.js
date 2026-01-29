@@ -20,7 +20,7 @@ const hotelDAO = {
     try {
       const result = await pool.request()
         .input('idHotel', idHotel)
-        .query('SELECT * FROM dbo.vw_HotelesCard WHERE cedulaJuridica = @idHotel');
+        .query('SELECT * FROM dbo.vw_HotelDetalle WHERE cedulaJuridica = @idHotel');
         console.log(result.recordset);
 
       if (!result.recordset || result.recordset.length === 0) {

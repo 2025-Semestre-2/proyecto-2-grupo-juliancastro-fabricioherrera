@@ -20,6 +20,8 @@ const HotelDetail = () => {
     'X': '𝕏'
   };
 
+  const defaultImage = 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/457660099.jpg?k=de3de8785e60f108043338681e139977fc02c251aa5a3d6b2d0d8e4319d16fb9&o=';
+
   const parseSocialNetworks = (redesSocialesStr) => {
     if (!redesSocialesStr) return {};
     
@@ -96,7 +98,7 @@ const HotelDetail = () => {
       <div className={styles.detailsWrapper}>
         <div className={styles.imageSection}>
           <img 
-            src={hotel.fotoHabitacion || 'https://via.placeholder.com/600x400'} 
+            src={hotel.fotoHabitacion || defaultImage} 
             alt={hotel.nombreHotel}
             className={styles.mainImage}
           />

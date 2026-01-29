@@ -306,3 +306,320 @@
     flex-direction: column;
   }
 }
+
+/* ===== SECCIÓN DE HABITACIONES ===== */
+.habitacionesSection {
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto 0 auto;
+  padding: 0 20px;
+}
+
+.habitacionesSection h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.filtroToggle {
+  background-color: white;
+  color: #2c3e50;
+  border: 1px solid #ddd;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.filtroToggle:hover {
+  background-color: #f0f0f0;
+}
+
+.filtrosPanel {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.filtrosPanel h3 {
+  grid-column: 1 / -1;
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.filtroGrupo {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.filtroLabel {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+.checkboxGrid3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.checkboxGrid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  font-weight: 500;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.checkboxLabel:hover {
+  color: var(--primaryLight);
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primaryLight);
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.checkboxLabel input[type="checkbox"]:hover {
+  border-color: var(--primaryLight);
+}
+
+.checkboxLabel input[type="checkbox"]:checked {
+  background-color: var(--primaryLight);
+  border-color: var(--primaryLight);
+}
+
+.precioGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.precioGrid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.precioGrid label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.precioGrid input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: white;
+  color: #2c3e50;
+}
+
+.precioGrid input:focus {
+  outline: none;
+  border-color: var(--primaryLight);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.habitacionesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.habitacionCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habitacionCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.habitacionImage {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.habitacionImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.habitacionCard:hover .habitacionImage img {
+  transform: scale(1.05);
+}
+
+.priceBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--primaryLight);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.habitacionInfo {
+  padding: 20px;
+}
+
+.habitacionInfo h3 {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.descripcion {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+}
+
+.detalles {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.detalle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.detalle svg {
+  color: var(--primaryLight);
+  flex-shrink: 0;
+}
+
+.comodidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.comodidadBadge {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--primaryLight);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.reservarButton {
+  width: 100%;
+  background-color: var(--primaryLight);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reservarButton:hover {
+  background-color: var(--primaryDark);
+}
+
+.noHabitaciones {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .filtrosPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .checkboxGrid3 {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .checkboxGrid2 {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .habitacionesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .checkboxGrid3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .checkboxGrid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .habitacionesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .habitacionesSection h2 {
+    font-size: 1.3rem;
+  }
+
+  .precioGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .filtrosPanel {
+    padding: 15px;
+  }
+}

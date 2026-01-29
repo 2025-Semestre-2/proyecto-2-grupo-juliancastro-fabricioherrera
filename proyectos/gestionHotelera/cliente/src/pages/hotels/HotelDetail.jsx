@@ -10,6 +10,20 @@ const HotelDetail = () => {
   const [error, setError] = useState(null);
   const [socialNetworks, setSocialNetworks] = useState({});
   const [servicios, setServicios] = useState([]);
+  const [habitaciones, setHabitaciones] = useState([]);
+  const [filtros, setFiltros] = useState({
+    tiposCama: [],
+    tiposHabitacion: [],
+    comodidades: [],
+    precioMin: 0,
+    precioMax: 999
+  });
+  const [mostrarFiltros, setMostrarFiltros] = useState(false);
+
+  // Opciones disponibles para filtros
+  const TIPOS_CAMA = ['Individual', 'Queen', 'King'];
+  const TIPOS_HABITACION = ['Estándar', 'Familiar', 'Deluxe', 'Ejecutiva', 'Suite', 'Premium'];
+  const COMODIDADES_OPCIONES = ['WiFi de Habitación', 'Agua Caliente', 'Balcón', 'Aire Acondicionado', 'TV', 'Vista al Mar', 'Ventilador', 'Caja Fuerte'];
 
   // Mapeo de íconos SVG minimalistas para redes sociales
   const socialIcons = {
@@ -36,7 +50,7 @@ const HotelDetail = () => {
         <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
       </svg>
     ),
-    'Airbnb': (
+    'AirBnB': (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M5.83 10.5a5 5 0 0 1 8.34 0"></path>
         <path d="M3.46 7.04a9 9 0 0 1 17.08 0"></path>
@@ -74,6 +88,11 @@ const HotelDetail = () => {
     return serviciosStr.split(', ').map(servicio => servicio.trim()).filter(s => s);
   };
 
+  const parseComodidades = (comodidadesStr) => {
+    if (!comodidadesStr) return [];
+    return comodidadesStr.split(', ').map(comodidad => comodidad.trim()).filter(c => c);
+  };
+
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {
@@ -97,6 +116,13 @@ const HotelDetail = () => {
         // Parsear servicios
         if (hotelData.serviciosHotel) {
           setServicios(parseServicios(hotelData.serviciosHotel));
+        }
+
+        // Fetch habitaciones
+        const habitacionesResponse = await fetch(`http://localhost:3001/api/hotels/${idHotel}/habitaciones`);
+        if (habitacionesResponse.ok) {
+          const habitacionesData = await habitacionesResponse.json();
+          setHabitaciones(habitacionesData.data || []);
         }
       } catch (err) {
         setError(err.message);
@@ -221,10 +247,171 @@ const HotelDetail = () => {
             </div>
           )}
 
-          <div className={styles.actionButtons}>
-            <button className={styles.reserveButton}>Reservar Ahora</button>
-            <button className={styles.contactButton}>Contactar</button>
+        </div>
+      </div>
+
+      {/* Sección de Habitaciones */}
+      <div className={styles.habitacionesSection}>
+        <h2>Habitaciones Disponibles</h2>
+        
+        <button 
+          className={styles.filtroToggle}
+          onClick={() => setMostrarFiltros(!mostrarFiltros)}
+        >
+          {mostrarFiltros ? 'Ocultar Filtros' : 'Mostrar Filtros'}
+        </button>
+
+        {mostrarFiltros && (
+          <div className={styles.filtrosPanel}>
+            <h3>Filtros de Búsqueda</h3>
+            
+            {/* Tipo de Cama */}
+            <div className={styles.filtroGrupo}>
+              <label className={styles.filtroLabel}>Tipo de Cama</label>
+              <div className={styles.checkboxGrid3}>
+                {TIPOS_CAMA.map((tipo) => (
+                  <label key={tipo} className={styles.checkboxLabel}>
+                    <input 
+                      type="checkbox" 
+                      checked={filtros.tiposCama.includes(tipo)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setFiltros({...filtros, tiposCama: [...filtros.tiposCama, tipo]});
+                        } else {
+                          setFiltros({...filtros, tiposCama: filtros.tiposCama.filter(t => t !== tipo)});
+                        }
+                      }}
+                    />
+                    <span>{tipo}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Tipo de Habitación */}
+            <div className={styles.filtroGrupo}>
+              <label className={styles.filtroLabel}>Tipo de Habitación</label>
+              <div className={styles.checkboxGrid2}>
+                {TIPOS_HABITACION.map((tipo) => (
+                  <label key={tipo} className={styles.checkboxLabel}>
+                    <input 
+                      type="checkbox" 
+                      checked={filtros.tiposHabitacion.includes(tipo)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setFiltros({...filtros, tiposHabitacion: [...filtros.tiposHabitacion, tipo]});
+                        } else {
+                          setFiltros({...filtros, tiposHabitacion: filtros.tiposHabitacion.filter(t => t !== tipo)});
+                        }
+                      }}
+                    />
+                    <span>{tipo}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Comodidades */}
+            <div className={styles.filtroGrupo}>
+              <label className={styles.filtroLabel}>Comodidades de Habitación</label>
+              <div className={styles.checkboxGrid3}>
+                {COMODIDADES_OPCIONES.map((comodidad) => (
+                  <label key={comodidad} className={styles.checkboxLabel}>
+                    <input 
+                      type="checkbox" 
+                      checked={filtros.comodidades.includes(comodidad)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setFiltros({...filtros, comodidades: [...filtros.comodidades, comodidad]});
+                        } else {
+                          setFiltros({...filtros, comodidades: filtros.comodidades.filter(c => c !== comodidad)});
+                        }
+                      }}
+                    />
+                    <span>{comodidad}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Rango de Precio */}
+            <div className={styles.filtroGrupo}>
+              <label className={styles.filtroLabel}>Rango de Precio (€ por noche)</label>
+              <div className={styles.precioGrid}>
+                <div>
+                  <label>Precio Mínimo</label>
+                  <input 
+                    type="number" 
+                    placeholder="€0"
+                    value={filtros.precioMin}
+                    onChange={(e) => setFiltros({...filtros, precioMin: Number(e.target.value)})}
+                  />
+                </div>
+                <div>
+                  <label>Precio Máximo</label>
+                  <input 
+                    type="number" 
+                    placeholder="€999"
+                    value={filtros.precioMax}
+                    onChange={(e) => setFiltros({...filtros, precioMax: Number(e.target.value)})}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
+        )}
+
+        {/* Tarjetas de Habitaciones */}
+        <div className={styles.habitacionesGrid}>
+          {habitaciones.length > 0 ? (
+            habitaciones.map((habitacion, index) => (
+              <div key={index} className={styles.habitacionCard}>
+                <div className={styles.habitacionImage}>
+                  <img 
+                    src={habitacion.fotoHabitacion || defaultImage}
+                    alt={habitacion.nombreHabitacion}
+                  />
+                  <div className={styles.priceBadge}>
+                    ₡{habitacion.precio}/noche
+                  </div>
+                </div>
+                <div className={styles.habitacionInfo}>
+                  <h3>{habitacion.nombreHabitacion}</h3>
+                  <p className={styles.descripcion}>{habitacion.descripcion}</p>
+                  
+                  <div className={styles.detalles}>
+                    <div className={styles.detalle}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M6 9a6 6 0 1 0 12 0A6 6 0 0 0 6 9z"></path>
+                      </svg>
+                      {habitacion.tipoCama}
+                    </div>
+                    <div className={styles.detalle}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                      {habitacion.habitacionesDisponibles} disponible(s)
+                    </div>
+                  </div>
+
+                  {habitacion.comodidades && (
+                    <div className={styles.comodidades}>
+                      {parseComodidades(habitacion.comodidades).slice(0, 4).map((comodidad, idx) => (
+                        <span key={idx} className={styles.comodidadBadge}>
+                          {comodidad}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <button className={styles.reservarButton}>Reservar Ahora</button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className={styles.noHabitaciones}>No hay habitaciones disponibles</p>
+          )}
         </div>
       </div>
     </div>

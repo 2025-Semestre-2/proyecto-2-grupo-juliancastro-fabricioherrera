@@ -32,6 +32,20 @@ const hotelDAO = {
       console.error('Error en DAO getHotelById:', error);
       throw new Error('Error al obtener el hotel de la base de datos');
     }
+  },
+
+  async getHabitacionesByHotel(idHotel) {
+    try {
+      const result = await pool.request()
+        .input('cedulaJuridica', idHotel)
+        .query('SELECT * FROM dbo.vw_HabitacionesHotel WHERE cedulaJuridica = @cedulaJuridica');
+        console.log(result.recordset);
+
+      return result.recordset || [];
+    } catch (error) {
+      console.error('Error en DAO getHabitacionesByHotel:', error);
+      throw new Error('Error al obtener habitaciones del hotel de la base de datos');
+    }
   }
 };
 

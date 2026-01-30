@@ -4,8 +4,10 @@ import locationRoutes from './locationRoutes.js';
 import registerRoutes from './registerRoutes.js';
 import loginRoutes from './loginRoute.js';
 import serviceRoutes from './serviceRoute.js';
-import typesRoutes from './typesRoutes.js'
-import hotelRoutes from './hotelRoutes.js'
+import typesRoutes from './typesRoutes.js';
+import hotelRoutes from './hotelRoutes.js';
+import activityRoutes from './activityRoutes.js';
+import empresaRoutes from './enterpriseRoutes.js';
 
 const router = express.Router();
 
@@ -16,5 +18,7 @@ router.use('/auth', loginRoutes);
 router.use('/services', serviceRoutes);
 router.use('/types', typesRoutes);
 router.use('/hotels', hotelRoutes);
+router.use('/activities', activityRoutes);
+router.use('/empresas', empresaRoutes); // Nueva ruta
 
 export default router;

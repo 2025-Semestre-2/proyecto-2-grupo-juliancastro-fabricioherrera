@@ -104,20 +104,16 @@ function ActivityAdminPanel() {
     }
 
     try {
-      // Nota: necesitarás el tipoActividadID, puede que necesites ajustar esto
-      // según cómo esté estructurada tu base de datos
-      const response = await fetch(
-        `${API_URL}/activities/${activity.cedulaJuridica}/${activity.tipoActividadID}`,
-        {
-          method: 'DELETE'
-        }
-      );
+      const response = await 
+        fetch(`${API_URL}/activities/${activity.empresaActividadID}`, {
+         method: 'DELETE'
+        });
 
       const data = await response.json();
 
       if (response.ok && data.success) {
         alert('Actividad eliminada exitosamente');
-        loadActivities(); // Recargar lista
+        loadActivities(); 
       } else {
         alert(data.message || 'Error al eliminar la actividad');
       }
@@ -127,7 +123,6 @@ function ActivityAdminPanel() {
     }
   };
 
-  // Validación de autenticación
   if (!user?.cuentaID) {
     return (
       <div className={styles.container}>
@@ -138,7 +133,6 @@ function ActivityAdminPanel() {
     );
   }
 
-  // Estado de carga de empresa
   if (loadingEmpresa) {
     return (
       <div className={styles.container} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
@@ -150,7 +144,6 @@ function ActivityAdminPanel() {
     );
   }
 
-  // Estado de error de empresa
   if (errorEmpresa) {
     return (
       <div className={styles.container}>
@@ -212,7 +205,6 @@ function ActivityAdminPanel() {
 
       <div className={styles.cardContainer}>
         <div className={styles.cardFrame}>
-          {/* Estado de carga de actividades */}
           {loadingActivities && (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
               <CircularProgress />
@@ -220,7 +212,6 @@ function ActivityAdminPanel() {
             </Box>
           )}
 
-          {/* Error al cargar actividades */}
           {errorActivities && (
             <Alert severity="error" sx={{ mb: 2 }}>
               {errorActivities}
@@ -234,7 +225,6 @@ function ActivityAdminPanel() {
             </Alert>
           )}
 
-          {/* Sin actividades */}
           {!loadingActivities && !errorActivities && activities.length === 0 && (
             <Box sx={{ textAlign: 'center', py: 8 }}>
               <Typography variant="h6" color="textSecondary" gutterBottom>
@@ -246,12 +236,11 @@ function ActivityAdminPanel() {
             </Box>
           )}
 
-          {/* Lista de actividades */}
           {!loadingActivities && !errorActivities && activities.length > 0 && (
             <div className={styles.cardsGrid}>
               {activities.map((activity) => (
                 <ActivityDetailsCard
-                  key={`${activity.cedulaJuridica}-${activity.cuentaID}`}
+                  key={activity.empresaActividadID}
                   image={activity.url || 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800'}
                   title={activity.titulo}
                   description={activity.descripcion}

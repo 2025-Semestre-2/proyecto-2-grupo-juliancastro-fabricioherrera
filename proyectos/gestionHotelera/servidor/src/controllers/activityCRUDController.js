@@ -103,21 +103,20 @@ const activityCRUDController = {
 
   async deleteActivity(req, res) {
     try {
-      const { cedulaJuridica, tipoActividadID } = req.params;
+    const { empresaActividadID } = req.params;
 
-      if (!cedulaJuridica || !tipoActividadID) {
-        return res.status(400).json({
-          success: false,
-          message: 'La cédula jurídica y el tipo de actividad son requeridos'
-        });
-      }
+    if (!empresaActividadID) {
+    return res.status(400).json({
+        success: false,
+        message: 'El ID de la actividad es requerido'
+    });
+    }
 
-      const result = await activityDAO.deleteActivity(
-        cedulaJuridica,
-        parseInt(tipoActividadID)
-      );
+    const result = await activityDAO.deleteActivity(
+    parseInt(empresaActividadID)
+    );
 
-      res.status(200).json({
+    res.status(200).json({
         success: true,
         message: result.message,
         rowsAffected: result.rowsAffected

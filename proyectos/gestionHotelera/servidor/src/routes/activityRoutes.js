@@ -60,7 +60,7 @@ router.get(
 );
 
 router.delete(
-  '/:cedulaJuridica/:tipoActividadID',
+  '/:empresaActividadID',
   activityCRUDController.deleteActivity
 );
 

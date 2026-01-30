@@ -85,6 +85,7 @@ const activityDAO = {
         .input('cedulaJuridica', sql.VarChar(10), cedulaJuridica)
         .query(`
           SELECT 
+            empresaActividadID,
             cuentaID,
             cedulaJuridica,
             activo,
@@ -113,22 +114,18 @@ const activityDAO = {
     }
   },
 
-  async deleteActivity(cedulaJuridica, tipoActividadID) {
+  async deleteActivity(empresaActividadID) {
     try {
-      console.log(`Eliminando actividad: ${cedulaJuridica} - ${tipoActividadID}`);
+      console.log(`Eliminando actividad ID: ${empresaActividadID}`);
 
       const pool = await sql.connect();
       const result = await pool.request()
-        .input('cedulaJuridica', sql.VarChar(10), cedulaJuridica)
-        .input('tipoActividadID', sql.Int, tipoActividadID)
+        .input('empresaActividadID', sql.Int, empresaActividadID)
         .query(`
           UPDATE EmpresaActividad
           SET activo = 0
-          WHERE cedulaJuridica = @cedulaJuridica
-          AND tipoActividadID = @tipoActividadID
+          WHERE empresaActividadID = @empresaActividadID
         `);
-
-      console.log(`Actividad eliminada. Filas afectadas: ${result.rowsAffected[0]}`);
 
       return {
         success: true,
@@ -140,6 +137,7 @@ const activityDAO = {
       throw new Error(`Error al eliminar la actividad: ${error.message}`);
     }
   }
+
 };
 
 export default activityDAO;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./activityAdminPanel.module.css";
 import ActivityDetailsCard from "../../components/activityCard/ActivityDetailsCard";
-import AddActivityModal from "../../components/modals/ActivityModal";
+import ActivityModal from "../../components/modals/ActivityModal";
 import { Button, Typography, CircularProgress, Alert, Box } from "@mui/material";
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -9,6 +9,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 function ActivityAdminPanel() {
   const [openModal, setOpenModal] = useState(false);
+  const [activityToEdit, setActivityToEdit] = useState(null);
   const { user } = useAuth();
   
   // Estados para empresa
@@ -80,11 +81,13 @@ function ActivityAdminPanel() {
   };
 
   const handleOpenModal = () => {
+    setActivityToEdit(null); // Asegurarse de que está en modo crear
     setOpenModal(true);
   };
 
   const handleCloseModal = () => {
     setOpenModal(false);
+    setActivityToEdit(null);
   };
 
   const handleActivityCreated = (newActivity) => {
@@ -95,7 +98,8 @@ function ActivityAdminPanel() {
 
   const handleEdit = (activity) => {
     console.log("Editar actividad:", activity);
-    // TODO: Implementar edición
+    setActivityToEdit(activity);
+    setOpenModal(true);
   };
 
   const handleDelete = async (activity) => {
@@ -255,11 +259,12 @@ function ActivityAdminPanel() {
         </div>
       </div>
 
-      <AddActivityModal
+      <ActivityModal
         open={openModal}
         onClose={handleCloseModal}
         onSubmit={handleActivityCreated}
         cedulaJuridica={empresaData?.cedulaJuridica}
+        activityToEdit={activityToEdit}
       />
     </div>
   );

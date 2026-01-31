@@ -48,22 +48,33 @@ const upload = multer({
   fileFilter: fileFilter
 });
 
+// Crear nueva actividad
 router.post(
   '/',
   upload.single('image'), 
   activityCRUDController.createActivity
 );
 
+// Obtener actividades por empresa
 router.get(
   '/company/:cedulaJuridica',
   activityCRUDController.getActivitiesByCompany
 );
 
+// Actualizar actividad
+router.put(
+  '/:empresaActividadID',
+  upload.single('image'), // La imagen es opcional en actualización
+  activityCRUDController.updateActivity
+);
+
+// Eliminar actividad (soft delete)
 router.delete(
   '/:empresaActividadID',
   activityCRUDController.deleteActivity
 );
 
+// Manejo de errores de multer
 router.use((error, req, res, next) => {
   if (error instanceof multer.MulterError) {
     if (error.code === 'LIMIT_FILE_SIZE') {

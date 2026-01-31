@@ -76,6 +76,82 @@ const activityDAO = {
     }
   },
 
+  async updateActivity(empresaActividadID, activityData) {
+    try {
+      console.log('Iniciando actualización de actividad:', {
+        empresaActividadID,
+        titulo: activityData.titulo,
+        tipoActividad: activityData.tipoActividadNombre
+      });
+
+      const pool = await sql.connect();
+      console.log('Conexión al pool establecida');
+
+      const request = pool.request();
+      console.log('Configurando parámetros del SP...');
+
+      request.input('empresaActividadID', sql.Int, empresaActividadID);
+      request.input('tipoActividadNombre', sql.VarChar(50), activityData.tipoActividadNombre);
+      request.input('titulo', sql.VarChar(50), activityData.titulo);
+      request.input('descripcion', sql.VarChar(sql.MAX), activityData.descripcion);
+      request.input('precio', sql.Money, activityData.precio);
+      
+      // Solo enviar foto si se proporcionó una nueva
+      if (activityData.fotoTitulo && activityData.fotoUrl) {
+        request.input('fotoTitulo', sql.VarChar(50), activityData.fotoTitulo);
+        request.input('fotoUrl', sql.VarChar(150), activityData.fotoUrl);
+      }
+
+      console.log('Ejecutando stored procedure: sp_ActualizarEmpresaActividad');
+      const result = await request.execute('sp_ActualizarEmpresaActividad');
+
+      console.log('SP ejecutado exitosamente');
+
+      if (!result.recordset || result.recordset.length === 0) {
+        throw new Error('El stored procedure no retornó ningún resultado');
+      }
+
+      const responseData = result.recordset[0];
+      console.log(`Actividad actualizada ID: ${responseData.empresaActividadID}`);
+
+      return {
+        success: true,
+        data: {
+          empresaActividadID: responseData.empresaActividadID,
+          cedulaJuridica: responseData.cedulaJuridica,
+          tipoActividadID: responseData.tipoActividadID,
+          fotoID: responseData.fotoID,
+          message: responseData.mensaje || 'Actividad actualizada exitosamente'
+        }
+      };
+    } catch (error) {
+      console.error('Error detallado en activityDAO.updateActivity:', error);
+      console.error('Error completo:', {
+        name: error.name,
+        message: error.message,
+        number: error.number,
+        code: error.code,
+        state: error.state
+      });
+
+      if (error.number === 50001) {
+        throw new Error('La actividad no existe o está inactiva');
+      } else if (error.number === 50002) {
+        throw new Error('El tipo de actividad no existe en el sistema');
+      } else if (error.code === 'ELOGIN') {
+        throw new Error('Error de autenticación con la base de datos');
+      } else if (error.code === 'ETIMEOUT') {
+        throw new Error('Tiempo de espera agotado al conectar con la base de datos');
+      } else if (error.code === 'EREQUEST') {
+        throw new Error(`Error en la petición SQL: ${error.message}`);
+      } else if (error.code === 'ECONNREFUSED') {
+        throw new Error('No se pudo conectar a la base de datos');
+      } else {
+        throw new Error(`Error al actualizar la actividad: ${error.message || 'Error desconocido'}`);
+      }
+    }
+  },
+
   async getActivitiesByCompany(cedulaJuridica) {
     try {
       console.log(`Obteniendo actividades para empresa: ${cedulaJuridica}`);

@@ -52,7 +52,6 @@ function Navbar() {
         {renderRoleTab()}
       </nav>
 
-
       <div className={styles.actions}>
         {!isAuthenticated ? (
           <>

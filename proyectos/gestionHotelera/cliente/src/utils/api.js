@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 export const apiRequest = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
@@ -29,4 +29,27 @@ export const apiRequest = async (endpoint, options = {}) => {
   }
 
   return response;
+};
+
+// Helper: safely decode base64url JWT payload
+export const getAuthPayload = () => {
+  const token = localStorage.getItem('token');
+  if (!token) return null;
+
+  try {
+    const base64Url = token.split('.')[1];
+    if (!base64Url) return null;
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const padded = base64.padEnd(Math.ceil(base64.length / 4) * 4, '=');
+    const json = atob(padded);
+    return JSON.parse(json);
+  } catch {
+    return null;
+  }
+};
+
+// Convenience: get identificacion from JWT payload (if present)
+export const getUserIdentification = () => {
+  const payload = getAuthPayload();
+  return payload?.identificacion || null;
 };

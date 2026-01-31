@@ -16,9 +16,7 @@ const loginDAO = {
 
       const pool = await sql.connect();
 
-
       console.log('Buscando cuenta en vw_cuentas...');
-      
       const accountResult = await pool.request()
         .input('correo', sql.VarChar(30), email)
         .input('contrasenia', sql.VarBinary(256), hashedPassword)
@@ -47,17 +45,20 @@ const loginDAO = {
       };
 
       switch (account.rol.toLowerCase()) {
-        case 'User':
+        case 'user':
           console.log('Obteniendo datos de cliente desde vw_clientes...');
-          userData = await this.getClientData(pool, email);
+          const clientData = await this.getClientData(pool, email);
+          // NEW: preserve cuentaID and normalize rol to "User"
+          userData = { ...clientData, cuentaID: account.cuentaID, rol: 'User' };
           break;
 
-        case 'HAdmin':
+        case 'hadmin':
           console.log('Obteniendo datos de hoteles');
-          userData = await this.getHotelData(pool, email);
+          const hotelData = await this.getHotelData(pool, email);
+          userData = { ...hotelData, cuentaID: account.cuentaID };
           break;
 
-        case 'EAdmin':
+        case 'eadmin':
           console.log('Obteniendo datos de empresas');
           // userData = await this.getAdministradorData(pool, email);
           break;
@@ -110,12 +111,13 @@ const loginDAO = {
       }
       const cliente = result.recordset[0];
       return {
-        rol: 'Cliente',
+        // NEW: normalize role to "User" for consistency with client checks
+        rol: 'User',
         correo: cliente.correo,
         identificacion: cliente.identificacion,
         nombre: cliente.nombre,
         primerApellido: cliente.primerApellido,
-        segundoApellido: cliente.segundoApellido,
+        segundoApellido: cliente.segundoApellido || '',
         nombreCompleto: `${cliente.nombre} ${cliente.primerApellido} ${cliente.segundoApellido || ''}`.trim(),
         fechaNacimiento: cliente.fechaNacimiento,
         pais: cliente.pais,

@@ -1,11 +1,13 @@
+
 import express from 'express';
 import healthRouter from './health.js';
 import locationRoutes from './locationRoutes.js';
 import registerRoutes from './registerRoutes.js';
 import loginRoutes from './loginRoute.js';
 import serviceRoutes from './serviceRoute.js';
-import typesRoutes from './typesRoutes.js'
-import hotelRoutes from './hotelRoutes.js'
+import typesRoutes from './typesRoutes.js';
+import hotelRoutes from './hotelRoutes.js';
+import reservaRoutes from './reservaRoutes.js';
 
 const router = express.Router();
 
@@ -16,5 +18,6 @@ router.use('/auth', loginRoutes);
 router.use('/services', serviceRoutes);
 router.use('/types', typesRoutes);
 router.use('/hotels', hotelRoutes);
+router.use('/reservas', reservaRoutes);
 
 export default router;

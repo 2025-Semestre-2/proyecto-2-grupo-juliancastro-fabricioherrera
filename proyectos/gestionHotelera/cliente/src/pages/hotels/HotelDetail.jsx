@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './hotelDetail.module.css';
+// Add: import API_URL and identificacion helper
+import { API_URL, getUserIdentification } from '../../utils/api';
 
+// HotelDetail component
 const HotelDetail = () => {
   const { idHotel } = useParams();
   const navigate = useNavigate();
@@ -23,6 +26,8 @@ const HotelDetail = () => {
   // Estados para reserva
   const [habitacionSeleccionada, setHabitacionSeleccionada] = useState(null);
   const [mostrarReserva, setMostrarReserva] = useState(false);
+  // Keep the selected room ID in its own state to avoid null issues and field name variations
+  const [selectedHabitacionId, setSelectedHabitacionId] = useState(null);
   const [datosReserva, setDatosReserva] = useState({
     // Datos del Cliente
     cedula: '',
@@ -130,14 +135,19 @@ const HotelDetail = () => {
     return habitacionSeleccionada.precio * noches;
   };
 
+
+
   const handleReservar = (habitacion) => {
     setHabitacionSeleccionada(habitacion);
+    setSelectedHabitacionId(habitacion?.habitacionID ?? null);
     setMostrarReserva(true);
   };
+
 
   const handleCerrarReserva = () => {
     setMostrarReserva(false);
     setHabitacionSeleccionada(null);
+    setSelectedHabitacionId(null);
     setDatosReserva({
       cedula: '',
       nombre: '',
@@ -156,25 +166,80 @@ const HotelDetail = () => {
     });
   };
 
-  const handleSubmitReserva = (e) => {
+  const handleSubmitReserva = async (e) => {
     e.preventDefault();
-    // Por ahora solo mostrar alerta, no enviar a BD
-    alert('Reserva simulada exitosamente. En futuras versiones se enviará a la base de datos.');
-    handleCerrarReserva();
+    try {
+      // Aquí se asume que el usuario está autenticado y el token está en localStorage
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Debes iniciar sesión para reservar.');
+        return;
+      }
+
+      // NEW: extract identificacion from JWT; fallback to localStorage.user if needed
+      let identificacion = getUserIdentification();
+      if (!identificacion) {
+        try {
+          const user = JSON.parse(localStorage.getItem('user') || '{}');
+          identificacion = user?.identificacion || null;
+        } catch {
+          identificacion = null;
+        }
+      }
+
+      if (!identificacion) {
+        alert('No se pudo determinar tu identificación. Vuelve a iniciar sesión.');
+        return;
+      }
+
+      // Ensure we have a normalized room id
+      const habitacionID = selectedHabitacionId ?? habitacionSeleccionada?.habitacionID ?? null;
+      if (!habitacionID) {
+        alert('No se pudo determinar la habitación seleccionada. Intenta nuevamente.');
+        return;
+      }
+      // --- CHANGES END ---
+
+      const response = await fetch(`${API_URL}/reservas`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          habitacionID,
+          fechaInicio: `${datosReserva.checkIn}T${datosReserva.horaIngreso}`,
+          fechaSalida: `${datosReserva.checkOut}T12:00`,
+          cantPersonas: datosReserva.huespedes,
+          vehiculo: datosReserva.poseeVehiculo === 'Si' ? 1 : 0,
+          identificacion
+        })
+      });
+
+      const data = await response.json();
+      if (response.ok && data.success) {
+        alert('Reserva realizada exitosamente. Número de reservación: ' + data.numReservacion);
+        handleCerrarReserva();
+      } else {
+        alert('Error al realizar la reserva: ' + (data.error || 'Error desconocido.'));
+      }
+    } catch (err) {
+      alert('Error de red o del servidor: ' + err.message);
+    }
   };
 
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:3001/api/hotels/${idHotel}`);
-        
+
+        // CHANGE: use API_URL and provide clearer server error output
+        const response = await fetch(`${API_URL}/hotels/${idHotel}`);
         if (!response.ok) {
-          throw new Error('Hotel no encontrado');
+          const text = await response.text().catch(() => '');
+          throw new Error(`HTTP ${response.status}: ${text || 'Hotel no encontrado'}`);
         }
-        
         const data = await response.json();
-        console.log('Datos recibidos:', data);
         const hotelData = data.data || data;
         setHotel(hotelData);
         
@@ -189,11 +254,15 @@ const HotelDetail = () => {
         }
 
         // Fetch habitaciones
-        const habitacionesResponse = await fetch(`http://localhost:3001/api/hotels/${idHotel}/habitaciones`);
-        if (habitacionesResponse.ok) {
-          const habitacionesData = await habitacionesResponse.json();
-          setHabitaciones(habitacionesData.data || []);
+        const habitacionesResponse = await fetch(`${API_URL}/hotels/${idHotel}/habitaciones`);
+        if (!habitacionesResponse.ok) {
+          const text = await habitacionesResponse.text().catch(() => '');
+          throw new Error(`HTTP ${habitacionesResponse.status}: ${text || 'No se pudieron cargar las habitaciones'}`);
         }
+        const habitacionesData = await habitacionesResponse.json();
+        const rawHabitaciones = habitacionesData.data || habitacionesData || [];
+        setHabitaciones(rawHabitaciones);
+        // --- CHANGES END ---
       } catch (err) {
         setError(err.message);
         console.error('Error al cargar los detalles del hotel:', err);
@@ -435,7 +504,9 @@ const HotelDetail = () => {
         <div className={styles.habitacionesGrid}>
           {habitaciones.length > 0 ? (
             habitaciones.map((habitacion, index) => (
-              <div key={index} className={styles.habitacionCard}>
+              // --- CHANGES START: key uses habitacionID exclusively ---
+              <div key={habitacion.habitacionID ?? index} className={styles.habitacionCard}>
+              // --- CHANGES END ---
                 <div className={styles.habitacionImage}>
                   <img 
                     src={habitacion.fotoHabitacion || defaultImage}
@@ -448,7 +519,7 @@ const HotelDetail = () => {
                 <div className={styles.habitacionInfo}>
                   <h3>{habitacion.nombreHabitacion}</h3>
                   <p className={styles.descripcion}>{habitacion.descripcion}</p>
-                  
+
                   <div className={styles.detalles}>
                     <div className={styles.detalle}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -707,6 +778,6 @@ const HotelDetail = () => {
       )}
     </div>
   );
-};
+}
 
-export default HotelDetail;
+  export default HotelDetail;

@@ -30,13 +30,18 @@ const loginController = {
 
       console.log(`Login exitoso - Usuario: ${email}, Rol: ${result.data.rol}`);
 
-      // Generar token JWT
+
+      // Generar token JWT, incluyendo identificacion si está presente
+      const jwtPayload = {
+        cuentaID: result.data.cuentaID,
+        email: result.data.correo,
+        rol: result.data.rol
+      };
+      if (result.data.identificacion) {
+        jwtPayload.identificacion = result.data.identificacion;
+      }
       const token = jwt.sign(
-        { 
-          cuentaID: result.data.cuentaID,
-          email: result.data.correo,
-          rol: result.data.rol
-        },
+        jwtPayload,
         JWT_SECRET,
         { expiresIn: '24h' }
       );

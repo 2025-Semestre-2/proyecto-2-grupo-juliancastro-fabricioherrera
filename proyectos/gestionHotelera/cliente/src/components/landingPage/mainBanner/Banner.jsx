@@ -12,7 +12,7 @@ function Banner() {
                 <h1 className={`${styles.title} ${animationStyles.fadeUp}` }><span>Tortuga Verde</span><br/><br/></h1> 
                 <h2 className={`${animationStyles.fadeUp} ${animationStyles.delay1}`}>Encuentra hoteles, habitaciones y actividades todo en un único lugar. </h2>    
                 <div className={styles.btnContainer}>
-                    <Link to="/" className={styles.linkBtn}>Ver Habitaciones</Link>
+                    <Link to="/hoteles" className={styles.linkBtn}>Ver Habitaciones</Link>
                     <Link to="/" className={styles.linkBtn}>Ver Actividades Recreativas</Link>
                 </div>   
             </div>

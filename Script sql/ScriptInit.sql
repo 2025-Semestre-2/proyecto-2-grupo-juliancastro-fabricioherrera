@@ -8,14 +8,14 @@ DBCC CHECKIDENT (Pais, RESEED, 0);
 
 SET IDENTITY_INSERT Pais ON;
 
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (1, 'AFGANIST�N', '93');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (1, 'AFGANISTAN', '93');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (2, 'ALBANIA', '355');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (3, 'ALEMANIA', '49');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (4, 'ALGERIA', '213');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (5, 'ANDORRA', '376');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (6, 'ANGOLA', '244');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (7, 'ANGUILA', '1264');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (8, 'ANT�RTIDA', '672');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (8, 'ANTARTIDA', '672');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (9, 'ANTIGUA Y BARBUDA', '1268');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (10, 'ANTILLAS NEERLANDESAS', '599');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (11, 'ARABIA SAUDITA', '966');
@@ -24,29 +24,29 @@ INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (13, 'ARMENIA', '374'
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (14, 'ARUBA', '297');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (15, 'AUSTRALIA', '61');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (16, 'AUSTRIA', '43');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (17, 'AZERBAY�N', '994');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (18, 'B�LGICA', '32');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (17, 'AZERBAYAN', '994');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (18, 'BELGICA', '32');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (19, 'BAHAMAS', '1242');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (20, 'BAHREIN', '973');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (21, 'BANGLADESH', '880');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (22, 'BARBADOS', '1246');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (23, 'BELICE', '501');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (24, 'BEN�N', '229');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (25, 'BHUT�N', '975');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (24, 'BENAN', '229');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (25, 'BHUTAAN', '975');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (26, 'BIELORRUSIA', '375');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (27, 'BIRMANIA', '95');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (28, 'BOLIVIA', '591');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (29, 'BOSNIA Y HERZEGOVINA', '387');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (30, 'BOTSUANA', '267');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (31, 'BRASIL', '55');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (32, 'BRUN�I', '673');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (32, 'BRUNEI', '673');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (33, 'BULGARIA', '359');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (34, 'BURKINA FASO', '226');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (35, 'BURUNDI', '257');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (36, 'CABO VERDE', '238');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (37, 'CAMBOYA', '855');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (38, 'CAMER�N', '237');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (39, 'CANAD�', '1');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (38, 'CAMERUN', '237');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (39, 'CANADA', '1');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (40, 'CHAD', '235');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (41, 'CHILE', '56');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (42, 'CHINA', '86');
@@ -67,19 +67,19 @@ INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (56, 'DOMINICA', '176
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (57, 'ECUADOR', '593');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (58, 'EGIPTO', '20');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (59, 'EL SALVADOR', '503');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (60, 'EMIRATOS �RABES UNIDOS', '971');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (60, 'EMIRATOS ARABES UNIDOS', '971');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (61, 'ERITREA', '291');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (62, 'ESLOVAQUIA', '421');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (63, 'ESLOVENIA', '386');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (64, 'ESPA�A', '34');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (65, 'ESTADOS UNIDOS DE AM�RICA', '1');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (64, 'ESPANIA', '34');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (65, 'ESTADOS UNIDOS DE AMERICA', '1');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (66, 'ESTONIA', '372');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (67, 'ETIOP�A', '251');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (67, 'ETIOPIA', '251');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (68, 'FILIPINAS', '63');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (69, 'FINLANDIA', '358');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (70, 'FIYI', '679');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (71, 'FRANCIA', '33');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (72, 'GAB�N', '241');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (72, 'GABON', '241');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (73, 'GAMBIA', '220');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (74, 'GEORGIA', '995');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (75, 'GHANA', '233');
@@ -96,13 +96,13 @@ INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (85, 'GUINEA', '224')
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (86, 'GUINEA ECUATORIAL', '240');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (87, 'GUINEA-BISSAU', '245');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (88, 'GUYANA', '592');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (89, 'HAIT�', '509');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (89, 'HAITI', '509');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (90, 'HONDURAS', '504');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (91, 'HONG KONG', '852');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (92, 'HUNGR�A', '36');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (92, 'HUNGRIA', '36');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (93, 'INDIA', '91');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (94, 'INDONESIA', '62');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (95, 'IR�N', '98');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (95, 'IRAN', '98');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (96, 'IRAK', '964');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (97, 'IRLANDA', '353');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (98, 'ISLA BOUVET', '0');
@@ -111,10 +111,10 @@ INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (100, 'ISLA DE NAVIDA
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (101, 'ISLA NORFOLK', '0');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (102, 'ISLANDIA', '354');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (103, 'ISLAS BERMUDAS', '1441');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (104, 'ISLAS CAIM�N', '1345');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (104, 'ISLAS CAIMAN', '1345');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (105, 'ISLAS COCOS (KEELING)', '61');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (106, 'ISLAS COOK', '682');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (107, 'ISLAS DE �LAND', '0');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (107, 'ISLAS DE ALAND', '0');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (108, 'ISLAS FEROE', '298');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (109, 'ISLAS GEORGIAS DEL SUR Y SANDWICH DEL SUR', '0');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (110, 'ISLAS HEARD Y MCDONALD', '0');
@@ -123,23 +123,23 @@ INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (112, 'ISLAS MALVINAS
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (113, 'ISLAS MARIANAS DEL NORTE', '1670');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (114, 'ISLAS MARSHALL', '692');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (115, 'ISLAS PITCAIRN', '870');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (116, 'ISLAS SALOM�N', '677');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (116, 'ISLAS SALOMON', '677');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (117, 'ISLAS TURCAS Y CAICOS', '1649');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (118, 'ISLAS ULTRAMARINAS MENORES DE ESTADOS UNIDOS', '0');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (119, 'ISLAS V�RGENES BRIT�NICAS','1284');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (120, 'ISLAS V�RGENES DE LOS ESTADOS UNIDOS', '1340');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (119, 'ISLAS VIRGENES BRITANICAS','1284');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (120, 'ISLAS VIRGENES DE LOS ESTADOS UNIDOS', '1340');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (121, 'ISRAEL', '972');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (122, 'ITALIA', '39');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (123, 'JAMAICA', '1876');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (124, 'JAP�N', '81');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (124, 'JAPON', '81');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (125, 'JERSEY', '0');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (126, 'JORDANIA', '962');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (127, 'KAZAJIST�N', '7');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (127, 'KAZAJISTAN', '7');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (128, 'KENIA', '254');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (129, 'KIRGIZST�N', '996');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (129, 'KIRGIZSTAN', '996');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (130, 'KIRIBATI', '686');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (131, 'KUWAIT', '965');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (132, 'L�BANO', '961');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (132, 'LIBANO', '961');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (133, 'LAOS', '856');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (134, 'LESOTO', '266');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (135, 'LETONIA', '371');
@@ -148,10 +148,10 @@ INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (137, 'LIBIA', '218')
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (138, 'LIECHTENSTEIN', '423');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (139, 'LITUANIA', '370');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (140, 'LUXEMBURGO', '352');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (141, 'M�XICO', '52');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (142, 'M�NACO', '377');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (141, 'MEXICO', '52');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (142, 'MONACO', '377');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (143, 'MACAO', '853');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (144, 'MACED�NIA', '389');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (144, 'MACEDONIA', '389');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (145, 'MADAGASCAR', '261');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (146, 'MALASIA', '60');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (147, 'MALAWI', '265');
@@ -178,40 +178,40 @@ INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (167, 'NIUE', '683');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (168, 'NORUEGA', '47');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (169, 'NUEVA CALEDONIA', '687');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (170, 'NUEVA ZELANDA', '64');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (171, 'OM�N', '968');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (172, 'PA�SES BAJOS', '31');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (173, 'PAKIST�N', '92');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (171, 'OMAN', '968');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (172, 'PAISES BAJOS', '31');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (173, 'PAKISTAN', '92');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (174, 'PALAU', '680');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (175, 'PALESTINA', '0');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (176, 'PANAM�', '507');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (177, 'PAP�A NUEVA GUINEA', '675');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (176, 'PANAMA', '507');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (177, 'PAPUA NUEVA GUINEA', '675');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (178, 'PARAGUAY', '595');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (179, 'PER�', '51');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (179, 'PERU', '51');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (180, 'POLINESIA FRANCESA', '689');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (181, 'POLONIA', '48');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (182, 'PORTUGAL', '351');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (183, 'PUERTO RICO', '1');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (184, 'QATAR', '974');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (185, 'REINO UNIDO', '44');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (186, 'REP�BLICA CENTROAFRICANA', '236');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (187, 'REP�BLICA CHECA', '420');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (188, 'REP�BLICA DOMINICANA', '1809');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (189, 'REUNI�N', '0');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (186, 'REPUBLICA CENTROAFRICANA', '236');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (187, 'REPUBLICA CHECA', '420');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (188, 'REPUBLICA DOMINICANA', '1809');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (189, 'REUNION', '0');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (190, 'RUANDA', '250');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (191, 'RUMAN�A', '40');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (191, 'RUMANIA', '40');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (192, 'RUSIA', '7');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (193, 'SAHARA OCCIDENTAL', '0');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (194, 'SAMOA', '685');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (195, 'SAMOA AMERICANA', '1684');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (196, 'SAN BARTOLOM�', '590');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (197, 'SAN CRIST�BAL Y NIEVES', '1869');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (196, 'SAN BARTOLOME', '590');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (197, 'SAN CRISTOBAL Y NIEVES', '1869');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (198, 'SAN MARINO', '378');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (199, 'SAN MART�N (FRANCIA)', '1599');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (200, 'SAN PEDRO Y MIQUEL�N', '508');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (199, 'SAN MARTIN (FRANCIA)', '1599');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (200, 'SAN PEDRO Y MIQUELON', '508');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (201, 'SAN VICENTE Y LAS GRANADINAS', '1784');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (202, 'SANTA ELENA', '290');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (203, 'SANTA LUC�A', '1758');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (204, 'SANTO TOM� Y PR�NCIPE', '239');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (203, 'SANTA LUCIA', '1758');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (204, 'SANTO TOME Y PRINCIPE', '239');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (205, 'SENEGAL', '221');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (206, 'SERBIA', '381');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (207, 'SEYCHELLES', '248');
@@ -220,32 +220,32 @@ INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (209, 'SINGAPUR', '65
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (210, 'SIRIA', '963');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (211, 'SOMALIA', '252');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (212, 'SRI LANKA', '94');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (213, 'SUD�FRICA', '27');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (214, 'SUD�N', '249');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (213, 'SUDAFRICA', '27');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (214, 'SUDAN', '249');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (215, 'SUECIA', '46');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (216, 'SUIZA', '41');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (217, 'SURIN�M', '597');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (217, 'SURINAM', '597');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (218, 'SVALBARD Y JAN MAYEN', '0');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (219, 'SWAZILANDIA', '268');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (220, 'TADJIKIST�N', '992');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (220, 'TADJIKISTAN', '992');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (221, 'TAILANDIA', '66');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (222, 'TAIW�N', '886');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (222, 'TAIWAN', '886');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (223, 'TANZANIA', '255');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (224, 'TERRITORIO BRIT�NICO DEL OC�ANO �NDICO', '0');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (225, 'TERRITORIOS AUSTRALES Y ANT�RTICAS FRANCESES', '0');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (224, 'TERRITORIO BRITANICO DEL OCAANO INDICO', '0');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (225, 'TERRITORIOS AUSTRALES Y ANTARTICAS FRANCESES', '0');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (226, 'TIMOR ORIENTAL', '670');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (227, 'TOGO', '228');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (228, 'TOKELAU', '690');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (229, 'TONGA', '676');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (230, 'TRINIDAD Y TOBAGO', '1868');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (231, 'TUNEZ', '216');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (232, 'TURKMENIST�N', '993');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (233, 'TURQU�A', '90');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (232, 'TURKMENISTAN', '993');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (233, 'TURQUIA', '90');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (234, 'TUVALU', '688');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (235, 'UCRANIA', '380');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (236, 'UGANDA', '256');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (237, 'URUGUAY', '598');
-INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (238, 'UZBEKIST�N', '998');
+INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (238, 'UZBEKISTAN', '998');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (239, 'VANUATU', '678');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (240, 'VENEZUELA', '58');
 INSERT INTO Pais (paisID, nombre, codigoTelefonico) VALUES (241, 'VIETNAM', '84');
@@ -262,46 +262,46 @@ DBCC CHECKIDENT (Provincia, RESEED, 0);
 
 SET IDENTITY_INSERT Provincia ON;
 
-INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (1, 'San Jos�', 52);
+INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (1, 'San Jose', 52);
 INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (2, 'Alajuela', 52);
 INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (3, 'Cartago', 52);
 INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (4, 'Heredia', 52);
 INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (5, 'Guanacaste', 52);
 INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (6, 'Puntarenas', 52);
-INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (7, 'Lim�n', 52);
+INSERT INTO Provincia (provinciaID, nombre, paisID) VALUES (7, 'Limon', 52);
 
 SET IDENTITY_INSERT Provincia OFF;
 
 DELETE FROM Canton;
 
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (1, 1, 'San Jos�');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (2, 1, 'Escaz�');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (1, 1, 'San Jose');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (2, 1, 'Escazu');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (3, 1, 'Desamparados');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (4, 1, 'Puriscal');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (5, 1, 'Tarraz�');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (6, 1, 'Aserr�');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (5, 1, 'Tarraza');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (6, 1, 'Aserri');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (7, 1, 'Mora');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (8, 1, 'Goicoechea');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (9, 1, 'Santa Ana');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (10, 1, 'Alajuelita');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (11, 1, 'V�squez de Coronado');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (11, 1, 'Vasquez de Coronado');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (12, 1, 'Acosta');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (13, 1, 'Tib�s');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (13, 1, 'Tibas');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (14, 1, 'Moravia');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (15, 1, 'Montes de Oca');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (16, 1, 'Turrubares');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (17, 1, 'Dota');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (18, 1, 'Curridabat');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (19, 1, 'P�rez Zeled�n');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (20, 1, 'Le�n Cort�z Castro');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (19, 1, 'Perez Zeledon');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (20, 1, 'Leon Cortez Castro');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (21, 2, 'Alajuela');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (22, 2, 'San Ram�n');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (22, 2, 'San Ramon');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (23, 2, 'Grecia');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (24, 2, 'San Mateo');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (25, 2, 'Atenas');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (26, 2, 'Naranjo');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (27, 2, 'Palmares');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (28, 2, 'Po�s');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (28, 2, 'Poas');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (29, 2, 'Orotina');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (30, 2, 'San Carlos');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (31, 2, 'Zarcero');
@@ -310,9 +310,9 @@ INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (33, 2, 'Upala');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (34, 2, 'Los Chiles');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (35, 2, 'Guatuso');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (36, 3, 'Cartago');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (37, 3, 'Para�so');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (38, 3, 'La Uni�n');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (39, 3, 'Jim�nez');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (37, 3, 'Paraiso');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (38, 3, 'La Union');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (39, 3, 'Jimenez');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (40, 3, 'Turrialba');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (41, 3, 'Alvarado');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (42, 3, 'Oreamuno');
@@ -320,21 +320,21 @@ INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (43, 3, 'El Guarco');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (44, 4, 'Heredia');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (45, 4, 'Barva');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (46, 4, 'Santo Domingo');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (47, 4, 'Santa B�rbara');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (48, 4, 'San Rafa�l');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (47, 4, 'Santa Barbara');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (48, 4, 'San Rafael');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (49, 4, 'San Isidro');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (50, 4, 'Bel�n');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (50, 4, 'Belen');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (51, 4, 'Flores');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (52, 4, 'San Pablo');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (53, 4, 'Sarapiqu�');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (53, 4, 'Sarapiqui');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (54, 5, 'Liberia');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (55, 5, 'Nicoya');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (56, 5, 'Santa Cruz');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (57, 5, 'Bagaces');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (58, 5, 'Carrillo');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (59, 5, 'Ca�as');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (60, 5, 'Abang�res');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (61, 5, 'Tilar�n');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (59, 5, 'Canas');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (60, 5, 'Abangares');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (61, 5, 'Tilaran');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (62, 5, 'Nandayure');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (63, 5, 'La Cruz');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (64, 5, 'Hojancha');
@@ -349,12 +349,12 @@ INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (72, 6, 'Coto Brus');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (73, 6, 'Parrita');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (74, 6, 'Corredores');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (75, 6, 'Garabito');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (76, 7, 'Lim�n');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (77, 7, 'Pococ�');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (76, 7, 'Limon');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (77, 7, 'Pococi');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (78, 7, 'Siquirres');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (79, 7, 'Talamanca');
 INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (80, 7, 'Matina');
-INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (81, 7, 'Gu�cimo');
+INSERT INTO Canton (cantonID, provinciaID, nombre) VALUES (81, 7, 'Guacimo');
 
 
 
@@ -369,13 +369,13 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (2, 01, 'MERCED');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (3, 01, 'HOSPITAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (4, 01, 'CATEDRAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (5, 01, 'ZAPOTE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (6, 01, 'SAN FRANCISCO DE DOS R�OS');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (6, 01, 'SAN FRANCISCO DE DOS RIOS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (7, 01, 'URUCA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (8, 01, 'MATA REDONDA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (9, 01, 'PAVAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (10, 01, 'HATILLO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (11, 01, 'SAN SEBASTI�N');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (12, 02, 'ESCAZ�');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (11, 01, 'SAN SEBASTIAN');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (12, 02, 'ESCAZU');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (13, 02, 'SAN ANTONIO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (14, 02, 'SAN RAFAEL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (15, 03, 'DESAMPARADOS');
@@ -384,8 +384,8 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (17, 03, 'SAN JUAN DE
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (18, 03, 'SAN RAFAEL ARRIBA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (19, 03, 'SAN ANTONIO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (20, 03, 'FRAILES');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (21, 03, 'PATARR�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (22, 03, 'SAN CRIST�BAL');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (21, 03, 'PATARRA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (22, 03, 'SAN CRISTOBAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (23, 03, 'ROSARIO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (24, 03, 'DAMAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (25, 03, 'SAN RAFAEL ABAJO');
@@ -410,7 +410,7 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (43, 06, 'SAN GABRIEL
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (44, 06, 'LEGUA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (45, 06, 'MONTERREY');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (46, 06, 'SALITRILLOS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (47, 07, 'COL�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (47, 07, 'COLON');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (48, 07, 'GUAYABO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (49, 07, 'TABARCIA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (50, 07, 'PIEDRAS NEGRAS');
@@ -420,8 +420,8 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (53, 07, 'QUITIRRISI'
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (54, 08, 'GUADALUPE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (55, 08, 'SAN FRANCISCO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (56, 08, 'CALLE BLANCOS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (57, 08, 'MATA DE PL�TANO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (58, 08, 'IP�S');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (57, 08, 'MATA DE PLATANO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (58, 08, 'IPOS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (59, 08, 'RANCHO REDONDO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (60, 08, 'PURRAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (61, 09, 'SANTA ANA');
@@ -433,11 +433,11 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (66, 09, 'BRASIL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (67, 10, 'ALAJUELITA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (68, 10, 'SAN JOSECITO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (69, 10, 'SAN ANTONIO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (70, 10, 'CONCEPCI�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (70, 10, 'CONCEPCION');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (71, 10, 'SAN FELIPE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (72, 11, 'SAN ISIDRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (73, 11, 'SAN RAFAEL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (74, 11, 'DULCE NOMBRE DE JES�S');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (74, 11, 'DULCE NOMBRE DE JESUS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (75, 11, 'PATALILLO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (76, 11, 'CASCAJAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (77, 12, 'SAN IGNACIO');
@@ -451,7 +451,7 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (84, 13, 'ANSELMO LLO
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (85, 13, 'LEON XIII');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (86, 13, 'COLIMA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (87, 14, 'SAN VICENTE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (88, 14, 'SAN JER�NIMO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (88, 14, 'SAN JERONIMO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (89, 14, 'LA TRINIDAD');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (90, 15, 'SAN PEDRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (91, 15, 'SABANILLA');
@@ -462,12 +462,12 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (95, 16, 'SAN PEDRO')
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (96, 16, 'SAN JUAN DE MATA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (97, 16, 'SAN LUIS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (98, 16, 'CARARA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (99, 17, 'SANTA MAR�A');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (100, 17, 'JARD�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (99, 17, 'SANTA MARIA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (100, 17, 'JARDIN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (101, 17, 'COPEY');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (102, 18, 'CURRIDABAT');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (103, 18, 'GRANADILLA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (104, 18, 'S�NCHEZ');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (104, 18, 'SANCHEZ');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (105, 18, 'TIRRASES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (106, 19, 'SAN ISIDRO DE EL GENERAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (107, 19, 'EL GENERAL');
@@ -476,68 +476,68 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (109, 19, 'RIVAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (110, 19, 'SAN PEDRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (111, 19, 'PLATANARES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (112, 19, 'PEJIBAYE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (113, 19, 'CAJ�N');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (114, 19, 'BAR�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (115, 19, 'R�O NUEVO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (116, 19, 'P�RAMO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (113, 19, 'CAJON');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (114, 19, 'BARO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (115, 19, 'RIO NUEVO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (116, 19, 'PARAMO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (117, 20, 'SAN PABLO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (118, 20, 'SAN ANDR�S');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (118, 20, 'SAN ANDRES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (119, 20, 'LLANO BONITO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (120, 20, 'SAN ISIDRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (121, 20, 'SANTA CRUZ');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (122, 20, 'SAN ANTONIO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (123, 21, 'ALAJUELA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (124, 21, 'SAN JOS�');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (124, 21, 'SAN JOSE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (125, 21, 'CARRIZAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (126, 21, 'SAN ANTONIO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (127, 21, 'GU�CIMA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (127, 21, 'GUACIMA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (128, 21, 'SAN ISIDRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (129, 21, 'SABANILLA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (130, 21, 'SAN RAFAEL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (131, 21, 'R�O SEGUNDO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (131, 21, 'RIO SEGUNDO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (132, 21, 'DESAMPARADOS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (133, 21, 'TURR�CARES');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (133, 21, 'TURRACARES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (134, 21, 'TAMBOR');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (135, 21, 'GARITA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (136, 21, 'SARAPIQU�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (137, 22, 'SAN RAM�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (136, 21, 'SARAPIQUI');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (137, 22, 'SAN RAMON');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (138, 22, 'SANTIAGO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (139, 22, 'SAN JUAN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (140, 22, 'PIEDADES NORTE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (141, 22, 'PIEDADES SUR');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (142, 22, 'SAN RAFAEL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (143, 22, 'SAN ISIDRO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (144, 22, '�NGELES');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (144, 22, 'ANGELES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (145, 22, 'ALFARO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (146, 22, 'VOLIO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (147, 22, 'CONCEPCI�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (147, 22, 'CONCEPCION');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (148, 22, 'ZAPOTAL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (149, 22, 'PE�AS BLANCAS');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (149, 22, 'PENAS BLANCAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (150, 23, 'GRECIA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (151, 23, 'SAN ISIDRO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (152, 23, 'SAN JOS�');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (152, 23, 'SAN JOSE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (153, 23, 'SAN ROQUE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (154, 23, 'TACARES');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (155, 23, 'R�O CUARTO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (155, 23, 'RIO CUARTO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (156, 23, 'PUENTE DE PIEDRA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (157, 23, 'BOL�VAR');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (157, 23, 'BOLIVAR');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (158, 24, 'SAN MATEO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (159, 24, 'DESMONTE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (160, 24, 'JES�S MAR�A');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (160, 24, 'JESUS MARIA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (161, 24, 'LABRADOR');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (162, 25, 'ATENAS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (163, 25, 'JES�S');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (163, 25, 'JESUS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (164, 25, 'MERCEDES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (165, 25, 'SAN ISIDRO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (166, 25, 'CONCEPCI�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (166, 25, 'CONCEPCION');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (167, 25, 'SAN JOSE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (168, 25, 'SANTA EULALIA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (169, 25, 'ESCOBAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (170, 26, 'NARANJO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (171, 26, 'SAN MIGUEL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (172, 26, 'SAN JOS�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (173, 26, 'CIRR� SUR');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (174, 26, 'SAN JER�NIMO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (172, 26, 'SAN JOSE');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (173, 26, 'CIRRE SUR');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (174, 26, 'SAN JERONIMO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (175, 26, 'SAN JUAN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (176, 26, 'EL ROSARIO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (177, 26, 'PALMITOS');
@@ -546,7 +546,7 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (179, 27, 'ZARAGOZA')
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (180, 27, 'BUENOS AIRES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (181, 27, 'SANTIAGO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (182, 27, 'CANDELARIA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (183, 27, 'ESQU�PULAS');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (183, 27, 'ESQUIPULAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (184, 27, 'LA GRANJA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (185, 28, 'SAN PEDRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (186, 28, 'SAN JUAN');
@@ -577,21 +577,21 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (210, 31, 'GUADALUPE'
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (211, 31, 'PALMIRA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (212, 31, 'ZAPOTE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (213, 31, 'BRISAS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (214, 32, 'SARCH� NORTE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (215, 32, 'SARCH� SUR');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (214, 32, 'SARCHI NORTE');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (215, 32, 'SARCHI SUR');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (216, 32, 'TORO AMARILLO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (217, 32, 'SAN PEDRO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (218, 32, 'RODR�GUEZ');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (218, 32, 'RODRIGUEZ');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (219, 33, 'UPALA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (220, 33, 'AGUAS CLARAS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (221, 33, 'SAN JOS� o PIZOTE');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (221, 33, 'SAN JOSE o PIZOTE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (222, 33, 'BIJAGUA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (223, 33, 'DELICIAS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (224, 33, 'DOS R�OS');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (224, 33, 'DOS RIOS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (225, 33, 'YOLILLAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (226, 33, 'CANALETE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (227, 34, 'LOS CHILES');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (228, 34, 'CA�O NEGRO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (228, 34, 'CANO NEGRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (229, 34, 'EL AMPARO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (230, 34, 'SAN JORGE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (231, 35, 'BUENAVISTA');
@@ -600,7 +600,7 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (233, 35, 'KATIRA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (234, 36, 'ORIENTAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (235, 36, 'OCCIDENTAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (236, 36, 'CARMEN');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (237, 36, 'SAN NICOL�S');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (237, 36, 'SAN NICOLAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (238, 36, 'AGUACALIENTE o SAN FRANCISCO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (239, 36, 'GUADALUPE o ARENILLA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (240, 36, 'CORRALILLO');
@@ -608,20 +608,20 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (241, 36, 'TIERRA BLA
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (242, 36, 'DULCE NOMBRE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (243, 36, 'LLANO GRANDE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (244, 36, 'QUEBRADILLA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (245, 37, 'PARA�SO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (245, 37, 'PARAISO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (246, 37, 'SANTIAGO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (247, 37, 'OROSI');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (248, 37, 'CACH�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (249, 37, 'LLANOS DE SANTA LUC�A');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (250, 38, 'TRES R�OS');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (248, 37, 'CACHO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (249, 37, 'LLANOS DE SANTA LUCIA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (250, 38, 'TRES RIOS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (251, 38, 'SAN DIEGO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (252, 38, 'SAN JUAN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (253, 38, 'SAN RAFAEL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (254, 38, 'CONCEPCI�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (254, 38, 'CONCEPCION');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (255, 38, 'DULCE NOMBRE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (256, 38, 'SAN RAM�N');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (257, 38, 'R�O AZUL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (258, 39, 'JUAN VI�AS');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (256, 38, 'SAN RAMON');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (257, 38, 'RIO AZUL');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (258, 39, 'JUAN VINAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (259, 39, 'TUCURRIQUE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (260, 39, 'PEJIBAYE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (261, 40, 'TURRIALBA');
@@ -635,7 +635,7 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (268, 40, 'TAYUTIC');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (269, 40, 'SANTA ROSA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (270, 40, 'TRES EQUIS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (271, 40, 'LA ISABEL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (272, 40, 'CHIRRIP�');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (272, 40, 'CHIRRIPO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (273, 41, 'PACAYAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (274, 41, 'CERVANTES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (275, 41, 'CAPELLADES');
@@ -657,34 +657,34 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (290, 45, 'BARVA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (291, 45, 'SAN PEDRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (292, 45, 'SAN PABLO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (293, 45, 'SAN ROQUE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (294, 45, 'SANTA LUC�A');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (295, 45, 'SAN JOS� DE LA MONTA�A');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (294, 45, 'SANTA LUCIA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (295, 45, 'SAN JOSE DE LA MONTANA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (296, 46, 'SAN VICENTE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (297, 46, 'SAN MIGUEL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (298, 46, 'PARACITO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (299, 46, 'SANTO TOM�S');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (299, 46, 'SANTO TOMAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (300, 46, 'SANTA ROSA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (301, 46, 'TURES');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (302, 46, 'PAR�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (303, 47, 'SANTA B�RBARA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (302, 46, 'PARO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (303, 47, 'SANTA BARBARA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (304, 47, 'SAN PEDRO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (305, 47, 'SAN JUAN');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (306, 47, 'JES�S');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (306, 47, 'JESUS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (307, 47, 'SANTO DOMINGO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (308, 47, 'PURAB�');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (308, 47, 'PURABA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (309, 48, 'SAN RAFAEL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (310, 48, 'SAN JOSECITO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (311, 48, 'SANTIAGO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (312, 48, '�NGELES');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (313, 48, 'CONCEPCI�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (312, 48, 'ANGELES');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (313, 48, 'CONCEPCION');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (314, 49, 'SAN ISIDRO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (315, 49, 'SAN JOS�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (316, 49, 'CONCEPCI�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (315, 49, 'SAN JOSE');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (316, 49, 'CONCEPCION');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (317, 49, 'SAN FRANCISCO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (318, 50, 'SAN ANTONIO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (319, 50, 'LA RIBERA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (320, 50, 'LA ASUNCI�N');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (321, 51, 'SAN JOAQU�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (320, 50, 'LA ASUNCION');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (321, 51, 'SAN JOAQUIN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (322, 51, 'BARRANTES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (323, 51, 'LLORENTE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (324, 52, 'SAN PABLO');
@@ -692,37 +692,36 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (325, 53, 'PUERTO VIE
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (326, 53, 'LA VIRGEN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (327, 53, 'LAS HORQUETAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (328, 53, 'LLANURAS DEL GASPAR');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (329, 53, 'CURE�A');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (330, 54, 'LIBERIA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (331, 54, 'CA�AS DULCES');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (331, 54, 'CANAS DULCES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (332, 54, 'MAYORGA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (333, 54, 'NACASCOLO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (334, 54, 'CURUBAND�');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (334, 54, 'CURUBANDO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (335, 55, 'NICOYA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (336, 55, 'MANSI�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (336, 55, 'MANSION');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (337, 55, 'SAN ANTONIO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (338, 55, 'QUEBRADA HONDA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (339, 55, 'S�MARA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (339, 55, 'SAMARA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (340, 55, 'NOSARA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (341, 55, 'BEL�N DE NOSARITA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (341, 55, 'BELEN DE NOSARITA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (342, 56, 'SANTA CRUZ');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (343, 56, 'BOLS�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (343, 56, 'BOLSON');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (344, 56, 'VEINTISIETE DE ABRIL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (345, 56, 'TEMPATE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (346, 56, 'CARTAGENA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (347, 56, 'CUAJINIQUIL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (348, 56, 'DIRI�');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (348, 56, 'DIRIA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (349, 56, 'CABO VELAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (350, 56, 'TAMARINDO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (351, 57, 'BAGACES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (352, 57, 'LA FORTUNA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (353, 57, 'MOGOTE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (354, 57, 'R�O NARANJO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (354, 57, 'RIO NARANJO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (355, 58, 'FILADELFIA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (356, 58, 'PALMIRA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (357, 58, 'SARDINAL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (358, 58, 'BEL�N');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (359, 59, 'CA�AS');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (358, 58, 'BELEN');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (359, 59, 'CANAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (360, 59, 'PALMIRA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (361, 59, 'SAN MIGUEL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (362, 59, 'BEBEDERO');
@@ -731,11 +730,11 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (364, 60, 'LAS JUNTAS
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (365, 60, 'SIERRA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (366, 60, 'SAN JUAN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (367, 60, 'COLORADO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (368, 61, 'TILAR�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (368, 61, 'TILARAN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (369, 61, 'QUEBRADA GRANDE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (370, 61, 'TRONADORA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (371, 61, 'SANTA ROSA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (372, 61, 'L�BANO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (372, 61, 'LIBANO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (373, 61, 'TIERRAS MORENAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (374, 61, 'ARENAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (375, 62, 'CARMONA');
@@ -761,43 +760,43 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (394, 65, 'MANZANILLO
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (395, 65, 'GUACIMAL');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (396, 65, 'BARRANCA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (397, 65, 'MONTE VERDE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (398, 65, 'C�BANO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (398, 65, 'COBANO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (399, 65, 'CHACARITA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (400, 65, 'CHIRA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (401, 65, 'ACAPULCO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (402, 65, 'EL ROBLE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (403, 65, 'ARANCIBIA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (404, 66, 'ESP�RITU SANTO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (404, 66, 'ESPRITU SANTO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (405, 66, 'SAN JUAN GRANDE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (406, 66, 'MACACONA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (407, 66, 'SAN RAFAEL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (408, 66, 'SAN JER�NIMO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (408, 66, 'SAN JERONIMO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (409, 66, 'CALDERA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (410, 67, 'BUENOS AIRES');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (411, 67, 'VOLC�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (411, 67, 'VOLCAN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (412, 67, 'POTRERO GRANDE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (413, 67, 'BORUCA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (414, 67, 'PILAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (415, 67, 'COLINAS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (416, 67, 'CH�NGUENA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (416, 67, 'CHINGUENA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (417, 67, 'BIOLLEY');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (418, 67, 'BRUNKA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (419, 68, 'MIRAMAR');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (420, 68, 'LA UNI�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (420, 68, 'LA UNION');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (421, 68, 'SAN ISIDRO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (422, 69, 'PUERTO CORT�S');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (422, 69, 'PUERTO CORTES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (423, 69, 'PALMAR');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (424, 69, 'SIERPE');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (425, 69, 'BAH�A BALLENA');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (425, 69, 'BAHIA BALLENA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (426, 69, 'PIEDRAS BLANCAS');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (427, 69, 'BAH�A DRAKE');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (427, 69, 'BAHIA DRAKE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (428, 70, 'QUEPOS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (429, 70, 'SAVEGRE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (430, 70, 'NARANJITO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (431, 71, 'GOLFITO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (432, 71, 'PUERTO JIM�NEZ');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (433, 71, 'GUAYCAR�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (434, 71, 'PAV�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (432, 71, 'PUERTO JIMENEZ');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (433, 71, 'GUAYCARO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (434, 71, 'PAVON');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (435, 72, 'SAN VITO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (436, 72, 'SABALITO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (437, 72, 'AGUABUENA');
@@ -809,13 +808,13 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (442, 74, 'CORREDOR')
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (443, 74, 'LA CUESTA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (444, 74, 'CANOAS');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (445, 74, 'LAUREL');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (446, 75, 'JAC�');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (447, 75, 'T�RCOLES');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (448, 76, 'LIM�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (446, 75, 'JACO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (447, 75, 'TARCOLES');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (448, 76, 'LIMON');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (449, 76, 'VALLE LA ESTRELLA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (450, 76, 'MATAMA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (451, 77, 'GU�PILES');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (452, 77, 'JIM�NEZ');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (451, 77, 'GUAPILES');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (452, 77, 'JIMENEZ');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (453, 77, 'RITA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (454, 77, 'ROXANA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (455, 77, 'CARIARI');
@@ -826,19 +825,19 @@ INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (459, 78, 'PACUARITO'
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (460, 78, 'FLORIDA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (461, 78, 'GERMANIA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (462, 78, 'EL CAIRO');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (463, 78, 'ALEGR�A');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (463, 78, 'ALEGRIA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (464, 79, 'BRATSI');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (465, 79, 'SIXAOLA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (466, 79, 'CAHUITA');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (467, 79, 'TELIRE');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (468, 80, 'MATINA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (469, 80, 'BAT�N');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (469, 80, 'BATAN');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (470, 80, 'CARRANDI');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (471, 81, 'GU�CIMO');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (471, 81, 'GUACIMO');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (472, 81, 'MERCEDES');
 INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (473, 81, 'POCORA');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (474, 81, 'R�O JIM�NEZ');
-INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (475, 81, 'DUACAR�');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (474, 81, 'RIO JIMENEZ');
+INSERT INTO Distrito (distritoID, cantonID, nombre) VALUES (475, 81, 'DUACARO');
 
 SET IDENTITY_INSERT Distrito OFF;
 
@@ -855,120 +854,60 @@ VALUES
 --Servicios de hospedaje
 INSERT INTO Servicio (nombre) VALUES
 -- Alojamiento
-('Alojamiento'),
-('Hospedaje'),
-('Estancia'),
-('Uso de habitaci�n'),
-('Habitaci�n est�ndar'),
-('Habitaci�n superior'),
-('Habitaci�n privada'),
-('Habitaci�n compartida'),
-('Cama adicional'),
-('Configuraci�n especial de habitaci�n'),
-
--- Limpieza y mantenimiento
-('Limpieza de habitaci�n'),
-('Mantenimiento general'),
-('Cambio de ropa de cama'),
-('Servicio de aseo'),
-('Reposici�n de insumos'),
-
--- �reas comunes e instalaciones
-('Acceso a �reas comunes'),
-('Uso de instalaciones'),
-('Acceso a zonas recreativas'),
-('Uso de �reas compartidas'),
-('Acceso a espacios privados'),
-('�rea de descanso'),
-
--- Bienestar y relajaci�n
-('�rea de piscina'),
-('�rea acu�tica'),
-('�rea de relajaci�n'),
-('Zona de descanso'),
-('Zona de bienestar'),
-
--- Actividad f�sica
-('�rea de ejercicio'),
-('Zona fitness'),
-('Espacio de actividad f�sica'),
-
--- Servicios operativos del hospedaje
-('Recepci�n'),
-('Atenci�n al hu�sped'),
-('Gesti�n de estad�a'),
-('Asistencia general'),
-('Soporte al cliente'),
-
--- Servicios de alimentaci�n
-('Servicio de alimentaci�n'),
-('Servicio de comidas'),
-('Servicio de bebidas'),
-('�rea de comedor'),
-
--- Comodidades generales
+('Piscina'),
+('WiFi'),
 ('Parqueo'),
-('Conectividad'),
-('Acceso a internet'),
-('Acceso a servicios b�sicos'),
-
--- Servicios complementarios
-('Servicio adicional'),
-('Servicio complementario'),
-('Servicio est�ndar'),
-('Servicio extendido'),
-('Servicio premium');
-
+('Aire acondicionado'),
+('Bar'),
+('Restaurante'),
+('Ranchos'),
+('Spa'),
+('Gimnasio'),
+('Cocina'),
+('Acceso a la playa'),
+('Desayuno incluido'),
+('Tours')
 
 --Tipos de hospedaje
 INSERT INTO TipoHospedaje (nombre) VALUES
 ('Hotel'),
 ('Motel'),
 ('Hostal'),
-('Hospedaje tur�stico'),
+('Hospedaje turistico'),
 ('Alojamiento rural'),
-('Casa de hu�spedes'),
+('Casa de huespedes'),
 ('Casa compartida'),
 ('Casa privada'),
 ('Apartamento'),
 ('Apartamento amueblado'),
 ('Condominio'),
-('Residencia tur�stica'),
-('Caba�a'),
+('Residencia turistica'),
+('Cabana'),
 ('Bungalow'),
 ('Villa'),
 ('Lodge'),
 ('Posada'),
-('Pensi�n'),
+('Pension'),
 ('Refugio'),
 ('Centro de hospedaje'),
-('Complejo tur�stico'),
-('Alojamiento temporal'),
-('Alojamiento permanente'),
-('Alojamiento econ�mico'),
-('Alojamiento est�ndar'),
-('Alojamiento premium'),
-('Alojamiento familiar'),
-('Alojamiento compartido'),
-('Alojamiento independiente');
-
+('Complejo turistico')
 
 --Tipos de actividad
 INSERT INTO [dbo].[TipoActividad] ([nombre]) VALUES
 ('Tour en kayak'),
-('Paseo en catamar�n'),
+('Paseo en catamaran'),
 ('Caminata guiada'),
 ('Senderismo'),
 ('Montura a caballo'),
 ('Tour en bicicleta'),
-('Excursi�n ecol�gica'),
-('Tour de observaci�n de aves'),
-('Tour panor�mico'),
+('Excursion ecologica'),
+('Tour de observacion de aves'),
+('Tour panoramico'),
 ('Recorrido cultural'),
-('Recorrido hist�rico'),
-('Tour gastron�mico'),
+('Recorrido historico'),
+('Tour gastronomico'),
 ('Clase recreativa'),
-('Actividad acu�tica'),
+('Actividad acuatica'),
 ('Paseo en bote'),
 ('Tour al atardecer'),
 ('Tour al amanecer'),
@@ -976,26 +915,26 @@ INSERT INTO [dbo].[TipoActividad] ([nombre]) VALUES
 ('Actividad al aire libre'),
 ('Tour naturalista'),
 ('Experiencia guiada'),
-('Recorrido esc�nico'),
-('Tour fotogr�fico'),
+('Recorrido escenico'),
+('Tour fotografico'),
 ('Actividad recreativa'),
 ('Actividad familiar'),
 ('Actividad grupal'),
 ('Actividad individual'),
 ('Experiencia cultural'),
 ('Experiencia natural'),
-('Experiencia tur�stica'),
-('Tour de exploraci�n'),
+('Experiencia turistica'),
+('Tour de exploracion'),
 ('Tour guiado'),
 ('Actividad deportiva'),
-('Actividad de relajaci�n'),
+('Actividad de relajacion'),
 ('Paseo recreativo'),
 ('Tour terrestre'),
-('Tour acu�tico'),
+('Tour acuatico'),
 ('Experiencia al aire libre'),
 ('Recorrido rural'),
-('Actividad de integraci�n'),
-('Tour ecol�gico'),
+('Actividad de integracion'),
+('Tour ecologico'),
 ('Experiencia de aventura');
 
 --Tipos de cama
@@ -1123,3 +1062,6 @@ VALUES
 (2, 1, 1, '3087823785'),
 (3, 1, 2, '3087823785');
 
+--Tipos de pago
+INSERT INTO TipoPago (nombre)
+VALUES ('Tarjeta'), ('Efectivo');

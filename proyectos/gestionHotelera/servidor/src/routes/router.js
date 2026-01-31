@@ -1,3 +1,4 @@
+
 import express from 'express';
 import healthRouter from './health.js';
 import locationRoutes from './locationRoutes.js';
@@ -6,6 +7,7 @@ import loginRoutes from './loginRoute.js';
 import serviceRoutes from './serviceRoute.js';
 import typesRoutes from './typesRoutes.js';
 import hotelRoutes from './hotelRoutes.js';
+import reservaRoutes from './reservaRoutes.js';
 import activityRoutes from './activityRoutes.js';
 import empresaRoutes from './enterpriseRoutes.js';
 
@@ -18,6 +20,7 @@ router.use('/auth', loginRoutes);
 router.use('/services', serviceRoutes);
 router.use('/types', typesRoutes);
 router.use('/hotels', hotelRoutes);
+router.use('/reservas', reservaRoutes);
 router.use('/activities', activityRoutes);
 router.use('/empresas', empresaRoutes); // Nueva ruta
 

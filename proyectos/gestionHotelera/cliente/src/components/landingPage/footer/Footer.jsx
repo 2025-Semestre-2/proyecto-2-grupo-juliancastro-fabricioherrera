@@ -15,7 +15,7 @@ function Footer() {
             <NavLink to="/" className={styles.link}>
                 Inicio
             </NavLink>
-            <NavLink to="/rooms" className={styles.link}>
+            <NavLink to="/hoteles" className={styles.link}>
                 Hoteles
             </NavLink>
             <NavLink to="/about" className={styles.link}>

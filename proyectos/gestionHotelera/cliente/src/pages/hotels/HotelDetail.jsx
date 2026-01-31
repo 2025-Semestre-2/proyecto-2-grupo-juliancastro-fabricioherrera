@@ -20,6 +20,29 @@ const HotelDetail = () => {
   });
   const [mostrarFiltros, setMostrarFiltros] = useState(false);
 
+  // Estados para reserva
+  const [habitacionSeleccionada, setHabitacionSeleccionada] = useState(null);
+  const [mostrarReserva, setMostrarReserva] = useState(false);
+  const [datosReserva, setDatosReserva] = useState({
+    // Datos del Cliente
+    cedula: '',
+    nombre: '',
+    email: '',
+    telefono: '',
+    // Detalles de la Reserva
+    checkIn: '',
+    horaIngreso: '14:00',
+    checkOut: '',
+    huespedes: 1,
+    poseeVehiculo: 'No',
+    // Información de Pago
+    metodoPago: 'tarjeta',
+    numeroTarjeta: '',
+    nombreTarjeta: '',
+    fechaVencimiento: '',
+    cvv: ''
+  });
+
   // Opciones disponibles para filtros
   const TIPOS_CAMA = ['Individual', 'Queen', 'King'];
   const TIPOS_HABITACION = ['Estándar', 'Familiar', 'Deluxe', 'Ejecutiva', 'Suite', 'Premium'];
@@ -91,6 +114,53 @@ const HotelDetail = () => {
   const parseComodidades = (comodidadesStr) => {
     if (!comodidadesStr) return [];
     return comodidadesStr.split(', ').map(comodidad => comodidad.trim()).filter(c => c);
+  };
+
+  const calcularNoches = (checkIn, checkOut) => {
+    if (!checkIn || !checkOut) return 0;
+    const fechaIn = new Date(checkIn);
+    const fechaOut = new Date(checkOut);
+    const diffTime = Math.abs(fechaOut - fechaIn);
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  };
+
+  const calcularPrecioTotal = () => {
+    if (!habitacionSeleccionada || !datosReserva.checkIn || !datosReserva.checkOut) return 0;
+    const noches = calcularNoches(datosReserva.checkIn, datosReserva.checkOut);
+    return habitacionSeleccionada.precio * noches;
+  };
+
+  const handleReservar = (habitacion) => {
+    setHabitacionSeleccionada(habitacion);
+    setMostrarReserva(true);
+  };
+
+  const handleCerrarReserva = () => {
+    setMostrarReserva(false);
+    setHabitacionSeleccionada(null);
+    setDatosReserva({
+      cedula: '',
+      nombre: '',
+      email: '',
+      telefono: '',
+      checkIn: '',
+      horaIngreso: '14:00',
+      checkOut: '',
+      huespedes: 1,
+      poseeVehiculo: 'No',
+      metodoPago: 'tarjeta',
+      numeroTarjeta: '',
+      nombreTarjeta: '',
+      fechaVencimiento: '',
+      cvv: ''
+    });
+  };
+
+  const handleSubmitReserva = (e) => {
+    e.preventDefault();
+    // Por ahora solo mostrar alerta, no enviar a BD
+    alert('Reserva simulada exitosamente. En futuras versiones se enviará a la base de datos.');
+    handleCerrarReserva();
   };
 
   useEffect(() => {
@@ -405,7 +475,12 @@ const HotelDetail = () => {
                     </div>
                   )}
 
-                  <button className={styles.reservarButton}>Reservar Ahora</button>
+                  <button 
+                    className={styles.reservarButton}
+                    onClick={() => handleReservar(habitacion)}
+                  >
+                    Reservar Ahora
+                  </button>
                 </div>
               </div>
             ))
@@ -414,6 +489,222 @@ const HotelDetail = () => {
           )}
         </div>
       </div>
+
+      {/* Modal de Reserva */}
+      {mostrarReserva && habitacionSeleccionada && (
+        <div className={styles.reservaModal}>
+          <div className={styles.reservaOverlay} onClick={handleCerrarReserva}></div>
+          <div className={styles.reservaContentWrapper}>
+            <button 
+              className={styles.closeButton}
+              onClick={handleCerrarReserva}
+              type="button"
+            >
+              ✕
+            </button>
+            <h2 className={styles.reservaTitle}>Finalizar Reserva</h2>
+            <form onSubmit={handleSubmitReserva} className={styles.reservaForm}>
+              {/* Datos del Cliente */}
+              <div className={styles.formSection}>
+                <h3>Datos del Cliente</h3>
+                <div className={styles.formGrid2}>
+                  <div className={styles.formGroup}>
+                    <label>Cédula o Identificación *</label>
+                    <input
+                      type="text"
+                      value={datosReserva.cedula}
+                      onChange={(e) => setDatosReserva({...datosReserva, cedula: e.target.value})}
+                      placeholder="1-2345-6789"
+                      required
+                    />
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label>Nombre Completo *</label>
+                    <input
+                      type="text"
+                      value={datosReserva.nombre}
+                      onChange={(e) => setDatosReserva({...datosReserva, nombre: e.target.value})}
+                      placeholder="Juan Pérez Rodríguez"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className={styles.formGrid2}>
+                  <div className={styles.formGroup}>
+                    <label>Correo Electrónico *</label>
+                    <input
+                      type="email"
+                      value={datosReserva.email}
+                      onChange={(e) => setDatosReserva({...datosReserva, email: e.target.value})}
+                      placeholder="correo@ejemplo.com"
+                      required
+                    />
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label>Teléfono *</label>
+                    <input
+                      type="tel"
+                      value={datosReserva.telefono}
+                      onChange={(e) => setDatosReserva({...datosReserva, telefono: e.target.value})}
+                      placeholder="+506 8888-8888"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Detalles de la Reserva */}
+              <div className={styles.formSection}>
+                <h3>Detalles de la Reserva</h3>
+                <div className={styles.formGrid2}>
+                  <div className={styles.formGroup}>
+                    <label>Fecha de Ingreso *</label>
+                    <input
+                      type="date"
+                      value={datosReserva.checkIn}
+                      onChange={(e) => setDatosReserva({...datosReserva, checkIn: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label>Hora de Ingreso *</label>
+                    <input
+                      type="time"
+                      value={datosReserva.horaIngreso}
+                      onChange={(e) => setDatosReserva({...datosReserva, horaIngreso: e.target.value})}
+                      required
+                    />
+                    <small>Check-in desde las 14:00</small>
+                  </div>
+                </div>
+                <div className={styles.formGrid2}>
+                  <div className={styles.formGroup}>
+                    <label>Fecha de Salida *</label>
+                    <input
+                      type="date"
+                      value={datosReserva.checkOut}
+                      onChange={(e) => setDatosReserva({...datosReserva, checkOut: e.target.value})}
+                      required
+                    />
+                    <small>Check-out hasta las 12:00</small>
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label>Cantidad de Personas *</label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={datosReserva.huespedes}
+                      onChange={(e) => setDatosReserva({...datosReserva, huespedes: parseInt(e.target.value)})}
+                      required
+                    />
+
+                  </div>
+                </div>
+                <div className={styles.formGroup}>
+                  <label>¿Posee Vehículo? *</label>
+                  <div className={styles.buttonGroup}>
+                    <button
+                      type="button"
+                      className={styles.toggleButton + (datosReserva.poseeVehiculo === 'Si' ? ' ' + styles.active : '')}
+                      onClick={() => setDatosReserva({...datosReserva, poseeVehiculo: 'Si'})}
+                    >
+                      Sí
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.toggleButton + (datosReserva.poseeVehiculo === 'No' ? ' ' + styles.active : '')}
+                      onClick={() => setDatosReserva({...datosReserva, poseeVehiculo: 'No'})}
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Información de Pago */}
+              <div className={styles.formSection}>
+                <h3>Información de Pago</h3>
+                <div className={styles.formGroup}>
+                  <label>Método de Pago *</label>
+                  <div className={styles.paymentMethods}>
+                    <button
+                      type="button"
+                      className={styles.paymentButton + (datosReserva.metodoPago === 'tarjeta' ? ' ' + styles.activePayment : '')}
+                      onClick={() => setDatosReserva({...datosReserva, metodoPago: 'tarjeta'})}
+                    >
+                      Tarjeta de Crédito/Débito
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.paymentButton + (datosReserva.metodoPago === 'efectivo' ? ' ' + styles.activePayment : '')}
+                      onClick={() => setDatosReserva({...datosReserva, metodoPago: 'efectivo'})}
+                    >
+                      Efectivo en el Local
+                    </button>
+                  </div>
+                </div>
+
+                {datosReserva.metodoPago === 'tarjeta' && (
+                  <>
+                    <div className={styles.formGroup}>
+                      <label>Número de Tarjeta *</label>
+                      <input
+                        type="text"
+                        value={datosReserva.numeroTarjeta}
+                        onChange={(e) => setDatosReserva({...datosReserva, numeroTarjeta: e.target.value})}
+                        placeholder="1234 5678 9012 3456"
+                        maxLength="19"
+                        required
+                      />
+                    </div>
+                    <div className={styles.formGroup}>
+                      <label>Nombre en la Tarjeta *</label>
+                      <input
+                        type="text"
+                        value={datosReserva.nombreTarjeta}
+                        onChange={(e) => setDatosReserva({...datosReserva, nombreTarjeta: e.target.value})}
+                        placeholder="JUAN PEREZ"
+                        required
+                      />
+                    </div>
+                    <div className={styles.formGrid2}>
+                      <div className={styles.formGroup}>
+                        <label>Fecha de Vencimiento *</label>
+                        <input
+                          type="text"
+                          value={datosReserva.fechaVencimiento}
+                          onChange={(e) => setDatosReserva({...datosReserva, fechaVencimiento: e.target.value})}
+                          placeholder="MM/AA"
+                          maxLength="5"
+                          required
+                        />
+                      </div>
+                      <div className={styles.formGroup}>
+                        <label>CVV *</label>
+                        <input
+                          type="text"
+                          value={datosReserva.cvv}
+                          onChange={(e) => setDatosReserva({...datosReserva, cvv: e.target.value})}
+                          placeholder="123"
+                          maxLength="3"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              <button type="submit" className={styles.submitReservaButton}>
+                Confirmar y Pagar ₡{calcularPrecioTotal()}
+              </button>
+              <button type="button" onClick={handleCerrarReserva} className={styles.cancelReservaButton}>
+                Cancelar
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

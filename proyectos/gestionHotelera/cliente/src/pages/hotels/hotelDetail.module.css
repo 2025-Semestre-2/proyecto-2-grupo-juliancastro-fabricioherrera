@@ -1,3 +1,37 @@
+.formGroup input[type="date"]::placeholder,
+.formGroup input[type="time"]::placeholder,
+.formGroup input[type="number"]::placeholder {
+  color: #b0b0b0 !important;
+  opacity: 1 !important;
+}
+.submitReservaButton {
+  background: #16a34a !important;
+  color: #fff !important;
+  border: none;
+  padding: 16px 0;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  margin-top: 24px;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(22, 163, 74, 0.08);
+  display: block;
+}
+
+.submitReservaButton:hover {
+  background: #15803d !important;
+  color: #fff !important;
+  box-shadow: 0 5px 15px rgba(22, 163, 74, 0.18);
+}
+.toggleButton.active, .paymentButton.activePayment {
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.10);
+  z-index: 1;
+}
 .container {
   width: 100%;
   padding: 40px 20px;
@@ -621,5 +655,256 @@
 
   .filtrosPanel {
     padding: 15px;
+  }
+}
+
+/* Estilos para el Modal de Reserva */
+.reservaModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.reservaOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.reservaContentWrapper {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 900px;
+  width: 95%;
+  max-height: 95vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #333;
+}
+
+.reservaTitle {
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.reservaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.formSection {
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 25px;
+  background: #f8f9fa;
+}
+
+.formSection h3 {
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.formGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+}
+
+
+.formGroup input,
+.formGroup select {
+  padding: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  color: #1a1a1a;
+}
+
+
+.formGroup input::placeholder,
+.formGroup select::placeholder,
+.formSection input::placeholder,
+.formSection select::placeholder {
+  color: #b0b0b0;
+  opacity: 1;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+.formGroup small {
+  color: #6c757d;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.toggleButton {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #dee2e6;
+  background: white;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #495057;
+}
+
+.toggleButton:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.toggleButton.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.paymentMethods {
+  display: flex;
+  gap: 15px;
+}
+
+.paymentButton {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid #dee2e6;
+  background: white;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #495057;
+}
+
+.paymentButton:hover {
+  border-color: var(--primary);
+  background: #f0f9ff;
+}
+
+.paymentButton.activePayment {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.submitReservaButton {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submitReservaButton:hover {
+  background: var(--primaryDark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(22, 163, 74, 0.3);
+}
+
+.cancelReservaButton {
+  background: #e9ecef;
+  color: #495057;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancelReservaButton:hover {
+  background: #dee2e6;
+  color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .reservaContentWrapper {
+    padding: 20px;
+    max-width: 95%;
+    width: 100%;
+  }
+
+  .reservaTitle {
+    font-size: 1.5rem;
+  }
+
+  .formGrid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .paymentMethods {
+    flex-direction: column;
   }
 }

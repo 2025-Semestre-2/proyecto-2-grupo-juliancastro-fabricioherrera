@@ -4,7 +4,34 @@ import { useAuth } from "../../../contexts/AuthContext";
 import { NavLink, Link } from "react-router-dom";
 
 function Navbar() {
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, userRole } = useAuth();
+
+  const renderRoleTab = () => {
+    if (!isAuthenticated || !userRole) return null;
+
+    switch (userRole) {
+      case "User":
+        return (
+          <NavLink to="/my-reservations" className={styles.link}>
+            Mis Reservas
+          </NavLink>
+        );
+      case "EAdmin":
+        return (
+          <NavLink to="/admin/activities" className={styles.link}>
+            Panel Actividades
+          </NavLink>
+        );
+      case "HAdmin":
+        return (
+          <NavLink to="/admin/rooms" className={styles.link}>
+            Panel Habitaciones
+          </NavLink>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <header className={styles.navbar}>
@@ -22,6 +49,7 @@ function Navbar() {
         <NavLink to="/actividades" className={styles.link}>
           Actividades
         </NavLink>
+        {renderRoleTab()}
       </nav>
 
 

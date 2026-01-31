@@ -57,8 +57,7 @@ function Login() {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        login(data.data.user);
-        localStorage.setItem('user', JSON.stringify(data.data.user));
+        login(data.data.user, data.data.token);
         showAlert('success', `¡Bienvenido ${data.data.user.nombreCompleto || data.data.user.correo}!`);
 
         setTimeout(() => {

@@ -1,4 +1,8 @@
 import loginDAO from '../daos/loginDAO.js';
+import jwt from 'jsonwebtoken';
+import config from '../config/environment.js';
+
+const JWT_SECRET = config.jwt.secret;
 
 const loginController = {
 
@@ -26,11 +30,23 @@ const loginController = {
 
       console.log(`Login exitoso - Usuario: ${email}, Rol: ${result.data.rol}`);
 
+      // Generar token JWT
+      const token = jwt.sign(
+        { 
+          cuentaID: result.data.cuentaID,
+          email: result.data.correo,
+          rol: result.data.rol
+        },
+        JWT_SECRET,
+        { expiresIn: '24h' }
+      );
+
       return res.status(200).json({
         success: true,
         message: 'Inicio de sesión exitoso',
         data: {
-          user: result.data
+          user: result.data,
+          token: token
         }
       });
 
@@ -72,14 +88,31 @@ const loginController = {
 
   async verifyAuth(req, res) {
     try {
-      // TODO: Implementar cuando uses tokens/sesiones
-      // Por ahora retorna que no está autenticado
+      const token = req.headers.authorization?.split(' ')[1]; // Bearer token
 
-      return res.status(200).json({
-        success: true,
-        authenticated: false,
-        message: 'Verificación de autenticación pendiente de implementar'
-      });
+      if (!token) {
+        return res.status(401).json({
+          success: false,
+          authenticated: false,
+          message: 'Token no proporcionado'
+        });
+      }
+
+      try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        return res.status(200).json({
+          success: true,
+          authenticated: true,
+          user: decoded,
+          message: 'Token válido'
+        });
+      } catch (jwtError) {
+        return res.status(401).json({
+          success: false,
+          authenticated: false,
+          message: 'Token inválido o expirado'
+        });
+      }
 
     } catch (error) {
       console.error('❌ Error en loginController.verifyAuth:', error);

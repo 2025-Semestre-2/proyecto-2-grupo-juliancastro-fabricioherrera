@@ -17,6 +17,10 @@ const config = {
   server: {
     port: process.env.PORT || 3001,
     nodeEnv: process.env.NODE_ENV || 'development'
+  },
+
+  jwt: {
+    secret: process.env.JWT_SECRET || 'your-secret-key-change-in-production'
   }
 };
 

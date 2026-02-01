@@ -3,10 +3,19 @@ import cors from 'cors';
 import routes from './src/routes/router.js';
 import config from './src/config/environment.js';
 import connectDatabase from './src/config/database.js';
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "src/uploads"))
+);
 app.use('/api', routes);
 
 process.on('unhandledRejection', (reason, promise) => {

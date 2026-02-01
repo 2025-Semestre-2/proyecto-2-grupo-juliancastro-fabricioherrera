@@ -13,6 +13,7 @@ import HotelAdminPanel from "./pages/adminPanel/HotelAdminPanel";
 import ActivityAdminPanel from "./pages/adminPanel/ActivityAdminPanel";
 import MainHotelPage from "./pages/hotels/MainHotelPage";
 import HotelDetail from "./pages/hotels/HotelDetail";
+import MainActivityPage from "./pages/activities/MainActivityPage";
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
         />
         <Route path="/hoteles" element={<MainHotelPage />} />
         <Route path="/hotel/:idHotel" element={<HotelDetail />} />
+
+        <Route path="/actividades" element={<MainActivityPage />} />
       </Route>
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />

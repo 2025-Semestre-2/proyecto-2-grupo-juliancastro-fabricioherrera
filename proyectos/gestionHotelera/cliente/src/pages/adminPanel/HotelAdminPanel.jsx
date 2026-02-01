@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./hotelAdminPanel.module.css";
 import RoomDetailCard from "../../components/roomCard/RoomDetailCard";
+import RoomModal from "../../components/modals/RoomModal";
 import { Button, Typography, Tabs, Tab } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HotelIcon from "@mui/icons-material/Hotel";
@@ -8,6 +9,11 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 function HotelAdminPanel() {
   const [currentTab, setCurrentTab] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRoom, setSelectedRoom] = useState(null);
+
+  // TODO: Reemplazar con datos del backend
+  const hotelId = "HOTEL123"; // Este debería venir de la sesión o contexto
 
   const rooms = [
     {
@@ -19,7 +25,10 @@ function HotelAdminPanel() {
       capacity: 4,
       beds: 2,
       price: 350.00,
-      available: true
+      available: true,
+      roomNumber: "501",
+      amenities: ["WiFi", "Jacuzzi", "Vista al Mar", "Minibar", "Servicio a la Habitación"],
+      images: ["https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800"]
     },
     {
       id: 2,
@@ -30,7 +39,10 @@ function HotelAdminPanel() {
       capacity: 2,
       beds: 1,
       price: 180.00,
-      available: true
+      available: true,
+      roomNumber: "302",
+      amenities: ["WiFi", "Aire Acondicionado", "Balcón", "TV", "Caja Fuerte"],
+      images: ["https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"]
     },
     {
       id: 3,
@@ -41,7 +53,10 @@ function HotelAdminPanel() {
       capacity: 2,
       beds: 1,
       price: 120.00,
-      available: false
+      available: false,
+      roomNumber: "105",
+      amenities: ["WiFi", "Aire Acondicionado", "TV", "Baño Privado"],
+      images: ["https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800"]
     }
   ];
 
@@ -51,14 +66,37 @@ function HotelAdminPanel() {
 
   const handleEdit = (roomId) => {
     console.log("Editar habitación:", roomId);
+    const room = rooms.find(r => r.id === roomId);
+    if (room) {
+      setSelectedRoom(room);
+      setIsModalOpen(true);
+    }
   };
 
   const handleDelete = (roomId) => {
     console.log("Eliminar habitación:", roomId);
+    // TODO: Implementar lógica de eliminación
+    if (confirm("¿Estás seguro de que deseas eliminar esta habitación?")) {
+      // Llamar al backend para eliminar
+      alert("Habitación eliminada (pendiente implementación backend)");
+    }
   };
 
   const handleAddRoom = () => {
     console.log("Agregar nueva habitación");
+    setSelectedRoom(null); // Asegurar que no hay habitación seleccionada
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedRoom(null);
+  };
+
+  const handleSubmitRoom = (roomData) => {
+    console.log("Datos de habitación recibidos:", roomData);
+    // TODO: Implementar lógica para actualizar la lista de habitaciones
+    // Esto podría ser recargar los datos del backend o actualizar el estado local
   };
 
   return (
@@ -229,6 +267,15 @@ function HotelAdminPanel() {
           </div>
         </div>
       </TabPanel>
+
+      {/* Modal para agregar/editar habitaciones */}
+      <RoomModal
+        open={isModalOpen}
+        onClose={handleCloseModal}
+        onSubmit={handleSubmitRoom}
+        hotelId={hotelId}
+        roomToEdit={selectedRoom}
+      />
     </div>
   );
 }

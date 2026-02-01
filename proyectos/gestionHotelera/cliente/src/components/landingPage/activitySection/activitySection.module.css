@@ -32,3 +32,44 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+/* Estados de carga, error y vacío */
+.loadingContainer,
+.errorContainer,
+.emptyContainer {
+    width: 80%;
+    height: 50%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingText,
+.errorText,
+.emptyText {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.loadingText {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.errorText {
+    color: #ff6b6b;
+}
+
+.emptyText {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

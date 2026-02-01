@@ -212,8 +212,79 @@ const activityDAO = {
       console.error('Error en activityDAO.deleteActivity:', error);
       throw new Error(`Error al eliminar la actividad: ${error.message}`);
     }
-  }
+  },
+    async getActivitiesByCompany(cedulaJuridica) {
+    try {
+      console.log(`Obteniendo actividades para empresa: ${cedulaJuridica}`);
 
+      const pool = await sql.connect();
+      const result = await pool.request()
+        .input('cedulaJuridica', sql.VarChar(10), cedulaJuridica)
+        .query(`
+          SELECT 
+            empresaActividadID,
+            cuentaID,
+            cedulaJuridica,
+            activo,
+            precio,
+            titulo,
+            descripcion,
+            foto,
+            url,
+            nombre
+          FROM vw_actividades
+          WHERE cedulaJuridica = @cedulaJuridica
+          AND activo = 1
+          ORDER BY titulo
+        `);
+
+      console.log(`Actividades encontradas: ${result.recordset.length}`);
+
+      return {
+        success: true,
+        count: result.recordset.length,
+        data: result.recordset
+      };
+    } catch (error) {
+      console.error('Error en activityDAO.getActivitiesByCompany:', error);
+      throw new Error(`Error al obtener actividades: ${error.message}`);
+    }
+  },
+    async getAllActivities() {
+    try {
+      console.log('Obteniendo todas las actividades activas');
+
+      const pool = await sql.connect();
+      const result = await pool.request()
+        .query(`
+          SELECT 
+            empresaActividadID,
+            cuentaID,
+            cedulaJuridica,
+            activo,
+            precio,
+            titulo,
+            descripcion,
+            foto,
+            url,
+            nombre
+          FROM vw_actividades
+          WHERE activo = 1
+          ORDER BY empresaActividadID DESC
+        `);
+
+      console.log(`Actividades encontradas: ${result.recordset.length}`);
+
+      return {
+        success: true,
+        count: result.recordset.length,
+        data: result.recordset
+      };
+    } catch (error) {
+      console.error('Error en activityDAO.getAllActivities:', error);
+      throw new Error(`Error al obtener actividades: ${error.message}`);
+    }
+  }
 };
 
 export default activityDAO;

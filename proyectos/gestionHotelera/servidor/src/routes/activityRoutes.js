@@ -48,6 +48,12 @@ const upload = multer({
   fileFilter: fileFilter
 });
 
+// Obtener todas las actividades
+router.get(
+  '/',
+  activityCRUDController.getAllActivities
+);
+
 // Crear nueva actividad
 router.post(
   '/',

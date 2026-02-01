@@ -73,6 +73,25 @@ const activityCRUDController = {
     }
   },
 
+  async getAllActivities(req, res) {
+    try {
+      const result = await activityDAO.getAllActivities();
+
+      res.status(200).json({
+        success: true,
+        count: result.count,
+        data: result.data
+      });
+
+    } catch (error) {
+      console.error('Error en activityCRUDController.getAllActivities:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Error al obtener las actividades'
+      });
+    }
+  },
+
   async getActivitiesByCompany(req, res) {
     try {
       const { cedulaJuridica } = req.params;
@@ -101,37 +120,7 @@ const activityCRUDController = {
     }
   },
 
-  async deleteActivity(req, res) {
-    try {
-    const { empresaActividadID } = req.params;
-
-    if (!empresaActividadID) {
-    return res.status(400).json({
-        success: false,
-        message: 'El ID de la actividad es requerido'
-    });
-    }
-
-    const result = await activityDAO.deleteActivity(
-    parseInt(empresaActividadID)
-    );
-
-    res.status(200).json({
-        success: true,
-        message: result.message,
-        rowsAffected: result.rowsAffected
-      });
-
-    } catch (error) {
-      console.error('Error en activityCRUDController.deleteActivity:', error);
-      res.status(500).json({
-        success: false,
-        message: 'Error al eliminar la actividad'
-      });
-    }
-  },
-
-    async updateActivity(req, res) {
+  async updateActivity(req, res) {
     try {
       const { empresaActividadID } = req.params;
 

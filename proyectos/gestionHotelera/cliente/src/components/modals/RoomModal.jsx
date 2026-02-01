@@ -20,30 +20,31 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useAuth } from "../../contexts/AuthContext";
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 function RoomModal({ open, onClose, onSubmit, hotelId, roomToEdit = null }) {
-  const isEditMode = Boolean(roomToEdit);
-  
-  const [formData, setFormData] = useState({
-    roomNumber: '',
-    roomType: null,
-    bedType: '', // Campo automático para el tipo de cama
-    amenities: [],
-    price: '',
-    images: []
-  });
+    const isEditMode = Boolean(roomToEdit);
+    const { user } = useAuth();
+    const [formData, setFormData] = useState({
+        roomNumber: '',
+        roomType: null,
+        bedType: '',
+        amenities: [],
+        price: '',
+        images: []
+    });
 
-  const [imagePreviews, setImagePreviews] = useState([]);
-  const [uploading, setUploading] = useState(false);
-  const [uploadError, setUploadError] = useState(null);
-  
-  // Estados para los datos del autocomplete
-  const [roomTypes, setRoomTypes] = useState([]);
-  const [amenitiesList, setAmenitiesList] = useState([]);
-  const [loadingTypes, setLoadingTypes] = useState(false);
-  const [loadingAmenities, setLoadingAmenities] = useState(false);
+    const [imagePreviews, setImagePreviews] = useState([]);
+    const [uploading, setUploading] = useState(false);
+    const [uploadError, setUploadError] = useState(null);
+    
+    // Estados para los datos del autocomplete
+    const [roomTypes, setRoomTypes] = useState([]);
+    const [amenitiesList, setAmenitiesList] = useState([]);
+    const [loadingTypes, setLoadingTypes] = useState(false);
+    const [loadingAmenities, setLoadingAmenities] = useState(false);
 
   // Cargar datos cuando se abre el modal
   useEffect(() => {
@@ -119,7 +120,7 @@ function RoomModal({ open, onClose, onSubmit, hotelId, roomToEdit = null }) {
     setFormData(prev => ({
       ...prev,
       roomType: newValue,
-      bedType: newValue ? newValue.cama : '' // Actualizar automáticamente el tipo de cama
+      bedType: newValue ? newValue.cama : ''
     }));
   };
 
@@ -212,54 +213,24 @@ function RoomModal({ open, onClose, onSubmit, hotelId, roomToEdit = null }) {
     try {
       const formDataToSend = new FormData();
       
-      if (!isEditMode) {
-        formDataToSend.append('hotelId', hotelId);
-      }
+
+      formDataToSend.append('hotelId', user.cedulaJuridica);
       
       formDataToSend.append('roomNumber', formData.roomNumber);
       formDataToSend.append('roomType', formData.roomType.nombre);
-      formDataToSend.append('bedType', formData.bedType);
       formDataToSend.append('amenities', JSON.stringify(formData.amenities));
       formDataToSend.append('price', formData.price);
-      
-      // Agregar todas las imágenes nuevas
-      formData.images.forEach((image, index) => {
+
+      formData.images.forEach((image) => {
         formDataToSend.append('images', image);
       });
       
-      // TODO: Implementar la llamada al backend cuando esté listo
-      console.log('Datos a enviar:', {
-        roomNumber: formData.roomNumber,
-        roomType: formData.roomType.nombre,
-        bedType: formData.bedType,
-        amenities: formData.amenities,
-        price: formData.price,
-        imagesCount: formData.images.length
-      });
-      
-      // Simulación de éxito por ahora
-      setTimeout(() => {
-        if (onSubmit) {
-          onSubmit(formData);
-        }
-        
-        handleClose();
-        
-        alert(isEditMode ? '¡Habitación actualizada exitosamente!' : '¡Habitación creada exitosamente!');
-        setUploading(false);
-      }, 1000);
-      
-      /*
-      // Código para cuando el backend esté listo:
-      const url = isEditMode 
-        ? `${API_URL}/rooms/${roomToEdit.id}`
-        : `${API_URL}/rooms`;
-      
-      const method = isEditMode ? 'PUT' : 'POST';
+      const url = `${API_URL}/rooms`;
+      const method = 'POST';
       
       const response = await fetch(url, {
         method: method,
-        body: formDataToSend 
+        body: formDataToSend
       });
 
       const data = await response.json();
@@ -271,14 +242,14 @@ function RoomModal({ open, onClose, onSubmit, hotelId, roomToEdit = null }) {
         
         handleClose();
         
-        alert(isEditMode ? '¡Habitación actualizada exitosamente!' : '¡Habitación creada exitosamente!');
+        alert('¡Habitación creada exitosamente!');
       } else {
-        setUploadError(data.message || `Error al ${isEditMode ? 'actualizar' : 'crear'} la habitación`);
+        setUploadError(data.message || 'Error al crear la habitación');
       }
-      */
     } catch (error) {
-      console.error(`Error al ${isEditMode ? 'actualizar' : 'crear'} habitación:`, error);
+      console.error('Error al crear habitación:', error);
       setUploadError('Error de conexión con el servidor');
+    } finally {
       setUploading(false);
     }
   };
@@ -339,11 +310,11 @@ function RoomModal({ open, onClose, onSubmit, hotelId, roomToEdit = null }) {
             label="Número de Habitación"
             variant="outlined"
             fullWidth
+            type="number"
             required
             disabled={uploading}
             value={formData.roomNumber}
             onChange={(e) => handleInputChange('roomNumber', e.target.value)}
-            placeholder="Ej: 101, 201A, Suite 5"
             sx={{
               '& .MuiOutlinedInput-root': {
                 borderRadius: '12px'

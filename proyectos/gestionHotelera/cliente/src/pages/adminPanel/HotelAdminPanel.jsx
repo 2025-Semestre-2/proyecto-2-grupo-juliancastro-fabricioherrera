@@ -1,90 +1,102 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./hotelAdminPanel.module.css";
 import RoomDetailCard from "../../components/roomCard/RoomDetailCard";
 import RoomModal from "../../components/modals/RoomModal";
-import { Button, Typography, Tabs, Tab } from "@mui/material";
+import { Button, Typography, Tabs, Tab, CircularProgress, Alert, Box } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HotelIcon from "@mui/icons-material/Hotel";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { useAuth } from "../../contexts/AuthContext";
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 function HotelAdminPanel() {
   const [currentTab, setCurrentTab] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
+  const { user } = useAuth();
 
-  // TODO: Reemplazar con datos del backend
-  const hotelId = "HOTEL123"; // Este debería venir de la sesión o contexto
+  // Estados para habitaciones
+  const [rooms, setRooms] = useState([]);
+  const [loadingRooms, setLoadingRooms] = useState(false);
+  const [errorRooms, setErrorRooms] = useState(null);
 
-  const rooms = [
-    {
-      id: 1,
-      image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800",
-      title: "Suite Presidencial",
-      description: "Lujosa suite con vista panorámica, jacuzzi privado y todas las comodidades premium para una estancia inolvidable.",
-      type: "Suite",
-      capacity: 4,
-      beds: 2,
-      price: 350.00,
-      available: true,
-      roomNumber: "501",
-      amenities: ["WiFi", "Jacuzzi", "Vista al Mar", "Minibar", "Servicio a la Habitación"],
-      images: ["https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800"]
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800",
-      title: "Habitación Deluxe",
-      description: "Espaciosa habitación con decoración moderna, balcón privado y todas las amenidades necesarias para tu confort.",
-      type: "Deluxe",
-      capacity: 2,
-      beds: 1,
-      price: 180.00,
-      available: true,
-      roomNumber: "302",
-      amenities: ["WiFi", "Aire Acondicionado", "Balcón", "TV", "Caja Fuerte"],
-      images: ["https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"]
-    },
-    {
-      id: 3,
-      image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800",
-      title: "Habitación Estándar",
-      description: "Cómoda habitación perfecta para viajeros de negocios o parejas, con todas las comodidades básicas incluidas.",
-      type: "Estándar",
-      capacity: 2,
-      beds: 1,
-      price: 120.00,
-      available: false,
-      roomNumber: "105",
-      amenities: ["WiFi", "Aire Acondicionado", "TV", "Baño Privado"],
-      images: ["https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800"]
+  // Cargar habitaciones cuando hay cédula jurídica
+  useEffect(() => {
+    if (user?.cedulaJuridica) {
+      loadRooms();
     }
-  ];
+  }, [user?.cedulaJuridica]);
+
+  const loadRooms = async () => {
+    setLoadingRooms(true);
+    setErrorRooms(null);
+    
+    try {
+      const response = await fetch(`${API_URL}/rooms/company/${user.cedulaJuridica}`);
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setRooms(data.data);
+        console.log(`${data.count} habitaciones cargadas:`, data.data);
+      } else {
+        setErrorRooms(data.message || 'Error al cargar las habitaciones');
+      }
+    } catch (err) {
+      console.error('Error al cargar habitaciones:', err);
+      setErrorRooms('Error de conexión con el servidor');
+    } finally {
+      setLoadingRooms(false);
+    }
+  };
 
   const handleTabChange = (event, newValue) => {
     setCurrentTab(newValue);
   };
 
-  const handleEdit = (roomId) => {
-    console.log("Editar habitación:", roomId);
-    const room = rooms.find(r => r.id === roomId);
-    if (room) {
-      setSelectedRoom(room);
-      setIsModalOpen(true);
-    }
+  const handleEdit = (room) => {
+    console.log("Editar habitación:", room);
+    // Adaptar los datos de la habitación al formato del modal
+    const roomForEdit = {
+      habitacionID: room.habitacionID,
+      roomNumber: room.numero,
+      type: room.nombre,
+      capacity: room.capacidad,
+      description: room.descripcion,
+      price: parseFloat(room.precio),
+      images: room.url ? [room.url] : []
+    };
+    setSelectedRoom(roomForEdit);
+    setIsModalOpen(true);
   };
 
-  const handleDelete = (roomId) => {
-    console.log("Eliminar habitación:", roomId);
-    // TODO: Implementar lógica de eliminación
-    if (confirm("¿Estás seguro de que deseas eliminar esta habitación?")) {
-      // Llamar al backend para eliminar
-      alert("Habitación eliminada (pendiente implementación backend)");
+  const handleDelete = async (room) => {
+    if (!window.confirm(`¿Estás seguro de que deseas eliminar la Habitación ${room.numero}?`)) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_URL}/rooms/${room.habitacionID}`, {
+        method: 'DELETE'
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        alert('Habitación eliminada exitosamente');
+        loadRooms(); // Recargar las habitaciones
+      } else {
+        alert(data.message || 'Error al eliminar la habitación');
+      }
+    } catch (err) {
+      console.error('Error al eliminar habitación:', err);
+      alert('Error de conexión con el servidor');
     }
   };
 
   const handleAddRoom = () => {
     console.log("Agregar nueva habitación");
-    setSelectedRoom(null); // Asegurar que no hay habitación seleccionada
+    setSelectedRoom(null);
     setIsModalOpen(true);
   };
 
@@ -95,9 +107,19 @@ function HotelAdminPanel() {
 
   const handleSubmitRoom = (roomData) => {
     console.log("Datos de habitación recibidos:", roomData);
-    // TODO: Implementar lógica para actualizar la lista de habitaciones
-    // Esto podría ser recargar los datos del backend o actualizar el estado local
+    // Recargar las habitaciones después de crear/actualizar
+    loadRooms();
   };
+
+  if (!user?.cedulaJuridica) {
+    return (
+      <div className={styles.container}>
+        <Alert severity="error">
+          Error: No se encontró información del hotel. Por favor, inicia sesión nuevamente.
+        </Alert>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
@@ -105,6 +127,11 @@ function HotelAdminPanel() {
         <Typography variant="h4" color="black" fontWeight={500}>
           Panel de Administración
         </Typography>
+        {user?.nombre && (
+          <Typography variant="subtitle1" color="textSecondary" sx={{ mt: 1 }}>
+            {user.nombre}
+          </Typography>
+        )}
       </div>
 
       <div className={styles.tabsContainer}>
@@ -172,7 +199,27 @@ function HotelAdminPanel() {
 
         <div className={styles.cardContainer}>
           <div className={styles.cardFrame}>
-            {rooms.length === 0 ? (
+            {loadingRooms && (
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+                <CircularProgress />
+                <Typography sx={{ ml: 2 }}>Cargando habitaciones...</Typography>
+              </Box>
+            )}
+
+            {errorRooms && (
+              <Alert severity="error" sx={{ mb: 2 }}>
+                {errorRooms}
+                <Button 
+                  size="small" 
+                  onClick={loadRooms}
+                  sx={{ ml: 2 }}
+                >
+                  Reintentar
+                </Button>
+              </Alert>
+            )}
+
+            {!loadingRooms && !errorRooms && rooms.length === 0 && (
               <div className={styles.emptyState}>
                 <HotelIcon sx={{ fontSize: 60, color: '#ccc', mb: 2 }} />
                 <Typography variant="h6" color="#999">
@@ -182,21 +229,23 @@ function HotelAdminPanel() {
                   Agrega tu primera habitación usando el botón superior
                 </Typography>
               </div>
-            ) : (
+            )}
+
+            {!loadingRooms && !errorRooms && rooms.length > 0 && (
               <div className={styles.cardsGrid}>
                 {rooms.map((room) => (
                   <RoomDetailCard
-                    key={room.id}
-                    image={room.image}
-                    title={room.title}
-                    description={room.description}
-                    type={room.type}
-                    capacity={room.capacity}
-                    beds={room.beds}
-                    price={room.price}
-                    available={room.available}
-                    onEdit={() => handleEdit(room.id)}
-                    onDelete={() => handleDelete(room.id)}
+                    key={room.habitacionID}
+                    image={room.url || 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800'}
+                    roomNumber={room.numero}
+                    roomType={room.nombre || 'Estándar'}
+                    description={room.descripcion || 'Habitación cómoda y bien equipada'}
+                    capacity={room.capacidad || 'Estándar'}
+                    price={parseFloat(room.precio)}
+                    available={room.estado === 1}
+                    amenities={room.comodidades || []}
+                    onEdit={() => handleEdit(room)}
+                    onDelete={() => handleDelete(room)}
                   />
                 ))}
               </div>
@@ -246,7 +295,7 @@ function HotelAdminPanel() {
                 />
                 <StatCard
                   title="Habitaciones"
-                  value="12"
+                  value={rooms.length.toString()}
                   subtitle="Activas"
                   color="rgb(156, 39, 176)"
                 />
@@ -273,7 +322,7 @@ function HotelAdminPanel() {
         open={isModalOpen}
         onClose={handleCloseModal}
         onSubmit={handleSubmitRoom}
-        hotelId={hotelId}
+        hotelId={user?.cedulaJuridica}
         roomToEdit={selectedRoom}
       />
     </div>

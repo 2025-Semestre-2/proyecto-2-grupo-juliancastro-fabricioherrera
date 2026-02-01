@@ -1065,3 +1065,6 @@ VALUES
 --Tipos de pago
 INSERT INTO TipoPago (nombre)
 VALUES ('Tarjeta'), ('Efectivo');
+
+GRANT CONTROL ON DATABASE::SistemaGestionHotelera TO ProyBD;
+GO

@@ -25,7 +25,8 @@ const ActivityCardPrev = ({ actividad }) => {
       <div className={styles.content}>
         <h3 className={styles.title}>{actividad.foto}</h3>
 
-        <h4 className={styles.subtitle}>{actividad.descripcion}</h4>
+        <h4 className={styles.description}>{actividad.descripcion}</h4>
+        <h4 className={styles.description}>{actividad.nombreEmpresa}</h4>
               
         
         {hotelId ? (

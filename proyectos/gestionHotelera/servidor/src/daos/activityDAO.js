@@ -267,7 +267,8 @@ const activityDAO = {
             descripcion,
             foto,
             url,
-            nombre
+            nombre,
+            nombreEmpresa
           FROM vw_actividades
           WHERE activo = 1
           ORDER BY empresaActividadID DESC

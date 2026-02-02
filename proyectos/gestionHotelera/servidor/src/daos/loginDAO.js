@@ -48,7 +48,6 @@ const loginDAO = {
         case 'user':
           console.log('Obteniendo datos de cliente desde vw_clientes...');
           const clientData = await this.getClientData(pool, email);
-          // NEW: preserve cuentaID and normalize rol to "User"
           userData = { ...clientData, cuentaID: account.cuentaID, rol: 'User' };
           break;
 
@@ -111,7 +110,6 @@ const loginDAO = {
       }
       const cliente = result.recordset[0];
       return {
-        // NEW: normalize role to "User" for consistency with client checks
         rol: 'User',
         correo: cliente.correo,
         identificacion: cliente.identificacion,

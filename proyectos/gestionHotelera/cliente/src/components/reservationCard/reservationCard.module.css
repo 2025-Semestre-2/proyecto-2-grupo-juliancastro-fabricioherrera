@@ -1,0 +1,23 @@
+.reservationCard {
+  margin-bottom: 1rem;
+}
+
+.reservationCardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checkoutButton {
+  transition: all 0.3s ease;
+}
+
+.checkoutButton:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .reservationCard {
+    flex-direction: column;
+  }
+}

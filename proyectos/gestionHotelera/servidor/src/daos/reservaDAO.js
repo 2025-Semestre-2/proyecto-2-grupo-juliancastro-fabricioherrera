@@ -2,7 +2,7 @@ import sql from 'mssql';
 import dbConfig from '../config/database.js';
 
 const reservaDAO = {
-  async crearReserva({ identificacion, habitacionID, fechaInicio, fechaSalida, cantPersonas, vehiculo }) {
+  async crearReserva({ identificacion, habitacionID, fechaInicio, fechaSalida, cantPersonas, vehiculo, tipoPagoID, importeTotal }) {
     let pool;
     try {
       pool = await sql.connect(dbConfig);
@@ -14,11 +14,12 @@ const reservaDAO = {
         .input('cantPersonas', sql.Int, cantPersonas)
         .input('vehiculo', sql.Bit, vehiculo)
         .execute('sp_CrearReserva');
+
       return result.recordset[0];
-    } catch (err) {
-      throw err;
-    } finally {
-      if (pool) pool.close();
+
+    } catch (error) {
+      console.error('Error al crear reserva:', error);
+      throw error; 
     }
   }
 };

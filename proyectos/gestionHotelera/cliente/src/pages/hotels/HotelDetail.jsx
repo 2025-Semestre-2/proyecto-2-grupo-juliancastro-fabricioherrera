@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './hotelDetail.module.css';
-// Add: import API_URL and identificacion helper
+
 import { API_URL, getUserIdentification } from '../../utils/api';
 
 // HotelDetail component
@@ -166,6 +166,7 @@ const HotelDetail = () => {
     });
   };
 
+
   const handleSubmitReserva = async (e) => {
     e.preventDefault();
     try {
@@ -219,6 +220,8 @@ const HotelDetail = () => {
       const data = await response.json();
       if (response.ok && data.success) {
         alert('Reserva realizada exitosamente. Número de reservación: ' + data.numReservacion);
+        // NEW: trigger download of the generated invoice PDF
+        await downloadFacturaPDF(data.numReservacion);
         handleCerrarReserva();
       } else {
         alert('Error al realizar la reserva: ' + (data.error || 'Error desconocido.'));

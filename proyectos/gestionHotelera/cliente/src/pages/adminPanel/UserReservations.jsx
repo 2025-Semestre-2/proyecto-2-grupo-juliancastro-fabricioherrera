@@ -130,11 +130,6 @@ function UserReservations() {
             iconPosition="start" 
             label={`Mis Reservas (${activeReservations.length})`}
           />
-          <Tab 
-            icon={<EmojiEventsIcon />} 
-            iconPosition="start" 
-            label="Ranking" 
-          />
         </Tabs>
       </div>
 
@@ -223,22 +218,6 @@ function UserReservations() {
                 )}
               </Box>
             )}
-          </div>
-        </div>
-      </TabPanel>
-
-      <TabPanel value={currentTab} index={1}>
-        <div className={styles.cardContainer}>
-          <div className={styles.cardFrame}>
-            <div className={styles.emptyState}>
-              <EmojiEventsIcon sx={{ fontSize: 60, color: '#ccc', mb: 2 }} />
-              <Typography variant="h6" color="#999">
-                Sistema de Ranking
-              </Typography>
-              <Typography variant="body2" color="#bbb">
-                Aquí podrás ver tu posición en el ranking y tus logros
-              </Typography>
-            </div>
           </div>
         </div>
       </TabPanel>

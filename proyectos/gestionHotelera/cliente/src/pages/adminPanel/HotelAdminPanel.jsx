@@ -161,11 +161,6 @@ function HotelAdminPanel() {
             label="Mis Habitaciones" 
           />
           <Tab 
-            icon={<BookmarkIcon />} 
-            iconPosition="start" 
-            label="Reservas Activas" 
-          />
-          <Tab 
             icon={<DashboardIcon />} 
             iconPosition="start" 
             label="Dashboard de Reportes" 
@@ -256,22 +251,6 @@ function HotelAdminPanel() {
       </TabPanel>
 
       <TabPanel value={currentTab} index={1}>
-        <div className={styles.cardContainer}>
-          <div className={styles.cardFrame}>
-            <div className={styles.emptyState}>
-              <BookmarkIcon sx={{ fontSize: 60, color: '#ccc', mb: 2 }} />
-              <Typography variant="h6" color="#999">
-                Reservas Activas
-              </Typography>
-              <Typography variant="body2" color="#bbb">
-                Aquí se mostrarán las cards de reservas activas
-              </Typography>
-            </div>
-          </div>
-        </div>
-      </TabPanel>
-
-      <TabPanel value={currentTab} index={2}>
         <div className={styles.cardContainer}>
           <div className={styles.cardFrame}>
             <DashboardTab 

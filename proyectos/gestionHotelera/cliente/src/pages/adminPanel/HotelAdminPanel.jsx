@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./hotelAdminPanel.module.css";
 import RoomDetailCard from "../../components/roomCard/RoomDetailCard";
 import RoomModal from "../../components/modals/RoomModal";
+import DashboardTab from "../../components/dashboard/DashboardTab";
 import { Button, Typography, Tabs, Tab, CircularProgress, Alert, Box } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HotelIcon from "@mui/icons-material/Hotel";
@@ -273,46 +274,10 @@ function HotelAdminPanel() {
       <TabPanel value={currentTab} index={2}>
         <div className={styles.cardContainer}>
           <div className={styles.cardFrame}>
-            <div className={styles.dashboardGrid}>
-              <div className={styles.statsGrid}>
-                <StatCard
-                  title="Total Reservas"
-                  value="45"
-                  subtitle="Este mes"
-                  color="rgb(211, 167, 85)"
-                />
-                <StatCard
-                  title="Ingresos"
-                  value="$12,450"
-                  subtitle="Este mes"
-                  color="rgb(76, 175, 80)"
-                />
-                <StatCard
-                  title="Ocupación"
-                  value="78%"
-                  subtitle="Promedio"
-                  color="rgb(33, 150, 243)"
-                />
-                <StatCard
-                  title="Habitaciones"
-                  value={rooms.length.toString()}
-                  subtitle="Activas"
-                  color="rgb(156, 39, 176)"
-                />
-              </div>
-
-              <div className={styles.chartsArea}>
-                <div className={styles.chartPlaceholder}>
-                  <DashboardIcon sx={{ fontSize: 60, color: '#ccc', mb: 2 }} />
-                  <Typography variant="h6" color="#999">
-                    Dashboard de Reportes
-                  </Typography>
-                  <Typography variant="body2" color="#bbb">
-                    Gráficos y estadísticas detalladas próximamente
-                  </Typography>
-                </div>
-              </div>
-            </div>
+            <DashboardTab 
+              cedulaJuridica={user?.cedulaJuridica}
+              roomCount={rooms.length}
+            />
           </div>
         </div>
       </TabPanel>
@@ -342,28 +307,6 @@ function TabPanel({ children, value, index }) {
       }}
     >
       {value === index && children}
-    </div>
-  );
-}
-
-function StatCard({ title, value, subtitle, color }) {
-  return (
-    <div className={styles.statCard}>
-      <div className={styles.statCardHeader}>
-        <Typography variant="body2" color="#666" fontWeight={500}>
-          {title}
-        </Typography>
-      </div>
-      <Typography 
-        variant="h3" 
-        fontWeight={700} 
-        sx={{ color: color, my: 1 }}
-      >
-        {value}
-      </Typography>
-      <Typography variant="caption" color="#999">
-        {subtitle}
-      </Typography>
     </div>
   );
 }
